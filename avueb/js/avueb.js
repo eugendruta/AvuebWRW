@@ -15,7 +15,7 @@ $(document).ready(function() {
     var starttime = localStorage.getItem("starttime");
     if (starttime === null) {
         alert("Dialogsystem nicht aktiv !!  Bitte anmelden ");
-        var url = "http://" + feserver + "/MainWRW/webrw/webrw.html";
+        var url = "http://" + globalconfig.feserver + "/MainWRW/webrw/webrw.html";
         var newWin = window.open(url, "_self");
     }
 
