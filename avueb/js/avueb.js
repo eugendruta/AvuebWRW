@@ -172,7 +172,8 @@ $(document).ready(function() {
         //      return false;
         //    }
     });
-    //Window click event
+    
+	//Window click event
     $(window).on("click", function(e) {
         //e.preventDefault();
         if (e.target.id === "navmini") {
@@ -218,7 +219,7 @@ $(document).ready(function() {
 
     //Eventlistener: Eintrag in localstorage
     function onStorageEvent(storageEvent) {
-        /* StorageEvent {
+     /* StorageEvent {
      key; name of the property set, changed etc.; oldValue; old value of property before change
      newValue; new value of property after change;  url; url of page that made the change
      storageArea; localStorage or sessionStorage,
