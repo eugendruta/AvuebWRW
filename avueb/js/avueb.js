@@ -172,8 +172,8 @@ $(document).ready(function() {
         //      return false;
         //    }
     });
-    
-	//Window click event
+
+    //Window click event
     $(window).on("click", function(e) {
         //e.preventDefault();
         if (e.target.id === "navmini") {
@@ -219,12 +219,12 @@ $(document).ready(function() {
 
     //Eventlistener: Eintrag in localstorage
     function onStorageEvent(storageEvent) {
-     /* StorageEvent {
-     key; name of the property set, changed etc.; oldValue; old value of property before change
-     newValue; new value of property after change;  url; url of page that made the change
-     storageArea; localStorage or sessionStorage,
-     }     
-     */
+        /* StorageEvent {
+        key; name of the property set, changed etc.; oldValue; old value of property before change
+        newValue; new value of property after change;  url; url of page that made the change
+        storageArea; localStorage or sessionStorage,
+        }     
+        */
         var key = storageEvent.key;
         var newvalue = storageEvent.newValue;
         var oldvalue = storageEvent.oldValue;
@@ -588,8 +588,17 @@ $(document).ready(function() {
         url += config.default.data[tabelle].servlet + "sqlstm=" + sqlstm;
         var table1 = config.default.data[tabelle].name;
         //Spalte 1 LE  visible/hidden
-        //config.obj.colModel[1].colModel[0].hidden = config.default.data.table1.columns[2].visible === "true" ? false : true;
-        config.obj.colModel[1].colModel[0].hidden = false;
+        for (let index = 0; index < config.obj.colModel.length; index++) {
+            for (
+                let index1 = 0; index1 < config.obj.colModel[index].colModel.length; index1++
+            ) {
+                config.obj.colModel[index].colModel[index1].hidden =
+                    config.default.data.table1.columns[index].visible === "true" ?
+                    false :
+                    true;
+                //config.obj.colModel[1].colModel[0].hidden = false;
+            }
+        }
 
         UTIL.logger(
             dialogname +
@@ -698,8 +707,11 @@ $(document).ready(function() {
     aktualisieren = function aktualisieren() {
         showtable("table1");
     };
+
     //Customising speichern
     speicherncust = function speicherncust(tabelle) {
+        UTIL.logger(dialogname + ": speicherncust(): tabelle: " + tabelle);
+
         let _display = "none";
         //Eingabefelder
         $(".custinput").each(function(index, value) {
@@ -707,7 +719,13 @@ $(document).ready(function() {
             if (_id.indexOf("cust") >= 0) {
                 _id = _id.substring(0, _id.indexOf("cust"));
             }
-            //UTIL.logger(dialogname + ': speicherncust(): chekbox id: ' + _id + ': chekbox value: ' + value.checked);
+            UTIL.logger(
+                dialogname +
+                ": speicherncust(): Eingabe: chekbox id: " +
+                _id +
+                ": chekbox value: " +
+                value.checked
+            );
             if (!value.checked) {
                 //Selkrit remove
                 _display = "none";
@@ -729,7 +747,15 @@ $(document).ready(function() {
         //Ausgabefelder(Tabelle)
         $(".custausgabe").each(function(index, value) {
             let _id = value.id;
-            //UTIL.logger(dialogname + ": speicherncust(): index: " + index + ";  chekbox id: " + _id + ': chekbox value: ' + value.checked);
+            UTIL.logger(
+                dialogname +
+                ": speicherncust(): Ausgabe: index: " +
+                index +
+                ";  chekbox id: " +
+                _id +
+                ": chekbox value: " +
+                value.checked
+            );
             if (!value.checked) {
                 //Tabellenspalte ausblenden
                 _display = "false";
@@ -747,6 +773,7 @@ $(document).ready(function() {
         $("#custom").css("display", "none");
         $("#custom").dialog("close");
     };
+
     resetcust = function resetcust(block, param) {
         UTIL.logger(
             dialogname + ": resetcust(): block: " + block + "; param: " + param
