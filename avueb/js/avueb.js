@@ -588,23 +588,24 @@ $(document).ready(function() {
         url += config.default.data[tabelle].servlet + "sqlstm=" + sqlstm;
         var table1 = config.default.data[tabelle].name;
         //Spalte 1 LE  visible/hidden
+        var ind = 0;
         for (let index = 0; index < config.obj.colModel.length; index++) {
-            for (
-                let index1 = 0; index1 < config.obj.colModel[index].colModel.length; index1++
-            ) {
+            for (let index1 = 0; index1 < config.obj.colModel[index].colModel.length; index1++) {
                 config.obj.colModel[index].colModel[index1].hidden =
-                    config.default.data.table1.columns[index].visible === "true" ?
+                    config.default.data.table1.columns[ind].visible === "true" ?
                     false :
                     true;
                 //config.obj.colModel[1].colModel[0].hidden = false;
+                if (!config.obj.colModel[index].colModel[index1].hidden) {
+                    UTIL.logger(
+                        dialogname + ": config.obj.colModel[" + index +
+                        "].colModel[" + index1 + "].visible"
+                    );
+                }
+                ind++;
             }
         }
-
-        UTIL.logger(
-            dialogname +
-            ": showtable(tabelle): config.obj.colModel[0].title: " +
-            config.obj.colModel[0].colModel[0].title
-        );
+        F
         config.obj.selectChange = function(evt, ui) {
             var rows = ui.rows;
             if (rows && rows.length) {
@@ -719,13 +720,7 @@ $(document).ready(function() {
             if (_id.indexOf("cust") >= 0) {
                 _id = _id.substring(0, _id.indexOf("cust"));
             }
-            UTIL.logger(
-                dialogname +
-                ": speicherncust(): Eingabe: chekbox id: " +
-                _id +
-                ": chekbox value: " +
-                value.checked
-            );
+            //UTIL.logger(dialogname + ": speicherncust(): Eingabe: chekbox id: " + _id + ": chekbox value: " + value.checked);
             if (!value.checked) {
                 //Selkrit remove
                 _display = "none";
@@ -747,15 +742,6 @@ $(document).ready(function() {
         //Ausgabefelder(Tabelle)
         $(".custausgabe").each(function(index, value) {
             let _id = value.id;
-            UTIL.logger(
-                dialogname +
-                ": speicherncust(): Ausgabe: index: " +
-                index +
-                ";  chekbox id: " +
-                _id +
-                ": chekbox value: " +
-                value.checked
-            );
             if (!value.checked) {
                 //Tabellenspalte ausblenden
                 _display = "false";
@@ -763,7 +749,14 @@ $(document).ready(function() {
                 //Selkrit insert
                 _display = "true";
             }
-            config.default.data[tabelle].columns[index].visible = _display;
+            //config.default.data[tabelle].columns[index].visible = _display;
+            config.default.data.table1.columns[index].visible = _display;
+            UTIL.logger(
+                dialogname + ": speicherncust(): Ausgabe: index: " +
+                index + ";  chekbox id: " + _id +
+                ": chekbox value: " + value.checked + "; visible: " +
+                config.default.data.table1.columns[index].visible
+            );
         });
         //In localStorage speichern
         localStorage.setItem(
