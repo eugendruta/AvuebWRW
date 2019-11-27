@@ -72,8 +72,49 @@ $(document).ready(function() {
 					}
 
 					if (config.default.data["table1"].columns[i].name === name) {
+						name = name.toLowerCase();
 						config.default.data["table1"].columns[i].visible = visible;
-						//UTIL.logger(dialogname + ': customize(): ausgabe: feld.name: ' + name  + ': visible: ' + visible);
+						if (visible === "true") {
+							//AC_HERSTELLER
+							if (name.includes("_")) {
+								name = name.substr(3);
+							}
+
+							UTIL.logger(
+								dialogname +
+									": customize(): ausgabe: feld.name: " +
+									name +
+									": visible: " +
+									visible +
+									"; minWidth: " +
+									config.default.data["table1"].columns[i].minWidth
+							);
+
+							$("#" + name + "width").val(
+								config.default.data["table1"].columns[i].minWidth
+							);
+
+							/*
+							if (name.toLowerCase() === "mandant") {
+								$("#" + "mandantwidth").val(
+									config.default.data["table1"].columns[i].minWidth
+								);
+							} else if (name.toLowerCase() === "hersteller") {
+								$("#" + "herstellerwidth").val(
+									config.default.data["table1"].columns[i].minWidth
+								);
+							} else if (name.toLowerCase() === "teilenummer") {
+								$("#" + "teilenummerwidth").val(
+									config.default.data["table1"].columns[i].minWidth
+								);
+							} else if (name.toLowerCase() === "herstellerteilenummer") {
+								//HERSTELLERTEILENUMMER
+								$("#" + "herstellerteilenummerwidth").val(
+									config.default.data["table1"].columns[i].minWidth
+								);
+              }
+              */
+						}
 					}
 				}
 			}
@@ -601,13 +642,29 @@ $(document).ready(function() {
 						: true;
 				//config.obj.colModel[1].colModel[0].hidden = false;
 				if (!config.obj.colModel[index].colModel[index1].hidden) {
+					if (config.obj.colModel[index].colModel[index1].title === "MD") {
+						config.obj.colModel[index].colModel[index1].minWidth =
+							config.default.data.table1.columns[index].minWidth;
+						//200;
+						/*
+            $("#" + name + "width").val(
+							200
+							//config.obj.colModel[index].colModel[index1].minWidth
+            );
+            */
+					}
 					UTIL.logger(
 						dialogname +
+							": showtable(tabelle): " +
 							": config.obj.colModel[" +
 							index +
 							"].colModel[" +
 							index1 +
-							"].visible"
+							"].visible" +
+							"; colModel[index].colModel[index1].titel: " +
+							config.obj.colModel[index].colModel[index1].title +
+							"; colModel[index].colModel[index1].minWidth: " +
+							config.obj.colModel[index].colModel[index1].minWidth
 					);
 				}
 				ind++;
@@ -748,6 +805,7 @@ $(document).ready(function() {
 		);
 		_display = "none";
 		//Ausgabefelder(Tabelle)
+		var ind = 0;
 		$(".custausgabe").each(function(index, value) {
 			let _id = value.id;
 			if (!value.checked) {
@@ -759,17 +817,38 @@ $(document).ready(function() {
 			}
 			//config.default.data[tabelle].columns[index].visible = _display;
 			config.default.data.table1.columns[index].visible = _display;
-			UTIL.logger(
-				dialogname +
-					": speicherncust(): Ausgabe: index: " +
-					index +
-					";  chekbox id: " +
-					_id +
-					": chekbox value: " +
-					value.checked +
-					"; visible: " +
-					config.default.data.table1.columns[index].visible
-			);
+
+			if (_id.includes("width")) {
+				UTIL.logger(
+					dialogname +
+						": speicherncust(): " +
+						" id: " +
+						_id +
+						"; $(this).val(): " +
+						$(this).val()
+				);
+				config.default.data.table1.columns[ind].minWidth = $(this).val();
+				ind++;
+			} else {
+				UTIL.logger(
+					dialogname +
+						": speicherncust(): Ausgabe: index: " +
+						index +
+						"; chekbox id: " +
+						_id +
+						": chekbox value: " +
+						value.checked +
+						"; visible: " +
+						config.default.data.table1.columns[index].visible
+				);
+			}
+			/*
+			if (_id === "mandantwidth") {
+				var feldwidth = $("#" + _id).val();
+				UTIL.logger(dialogname + ": speicherncust(): feldwidth: " + feldwidth);
+				config.default.data.table1.columns[index].minWidth = feldwidth;
+      }
+      */
 		});
 		//In localStorage speichern
 		localStorage.setItem(
@@ -804,6 +883,7 @@ $(document).ready(function() {
 				//if (_id.indexOf("cust") >= 0) {
 				if (param === "reset") {
 					$("#" + _id).prop("checked", true);
+					$("#" + _id + "width").val(50);
 				} else if (param === "clear") {
 					$("#" + _id).prop("checked", false);
 				}
