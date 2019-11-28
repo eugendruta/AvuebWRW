@@ -128,7 +128,7 @@ var config = {
                 "anzcolumns": "57",
                 "pageLength": 5,
                 "columns": [
-                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", "minWidth": 165 },
+                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", "minWidth": 40 },
                     { "name": "AC_HERSTELLER", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 66 },
                     { "name": "TEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 67},
                     { "name": "HERSTELLERTEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 68 },
@@ -210,8 +210,8 @@ var config = {
                 dataType: "string", //# 1
                 "colModel": [
                     { "title": "Nr.", minWidth: 60 },
-                    { "title": "Lagerort" },
-                    { "title": "EZO" }
+                    { "title": "Lagerort", minWidth: 60 },
+                    { "title": "EZO", minWidth: 60 }
                 ]
             },
             {
@@ -256,21 +256,23 @@ var config = {
                             }
                         }
                     },
-                    { "title": "Grund" }
+                    { "title": "Grund", minWidth: 66 }
                 ]
             },
             {
                 "title": "Bestände",
-                "width": 100,
+                "width": 50,
                 dataType: "string", //# 3
                 "colModel": [
-                    { "title": "total" },
-                    { "title": "verfüg." },
-                    { "title": "reser." },
-                    { "title": "gesperrt" }
+                    { "title": "total", minWidth: 30 },
+                    { "title": "verfüg.", minWidth: 30 },
+                    { "title": "reser.", minWidth: 30 },
+                    { "title": "gesperrt", minWidth: 30 }
                 ]
             },
 
+            //TRANSPORT,INTERNESPERRE,CK_DISPOSTATUS,CK_QSSTATUS,
+            //OK;  { "name": "TRANSPORT", "typdata": "Boolean", "visible": "true", summe: "", minWidth: 79 },
             {
                 "title": "TR",
                 dataIndx: "tr",
@@ -278,7 +280,7 @@ var config = {
                 "colModel": [{
                     "title": "",
                     dataIndx: "tr",
-                    minWidth: 30,
+                    minWidth: 10,
                     align: "center",
                     resizable: false,
                     menuIcon: false,
@@ -315,6 +317,7 @@ var config = {
                 }]
             },
 
+            //{ "name": "INTERNESPERRE", "typdata": "Numeric", "visible": "true", summe: "", minWidth: 80 },
             {
                 "title": "SP",
                 dataType: "string",
@@ -324,6 +327,7 @@ var config = {
                 ]
             },
 
+            //OK;  { "name": "CK_DISPOSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 81 },
             {
                 "title": "DS",
                 dataType: "string", //# 6
@@ -332,6 +336,7 @@ var config = {
                 ]
             },
 
+              //{ "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
             {
                 "title": "QS-Status",
                 dataType: "string", //# 7
@@ -339,7 +344,6 @@ var config = {
                     { "title": "", "minWidth": 75 }
                 ]
             },
-
             {
                 "title": "Hostlager",
                 dataType: "string", //# 8
@@ -347,18 +351,16 @@ var config = {
                     { "title": "", "minWidth": 100 }
                 ]
             },
-
             {
                 "title": "Avis",
                 "width": 150,
                 dataType: "string", //# 9
                 "colModel": [
-                    { "title": "Nr." },
-                    { "title": "Kiste" },
+                    { "title": "Nr.", minWidth: 66 },
+                    { "title": "Kiste", minWidth: 66 },
                     { "title": "Container", "minWidth": 65 }
                 ]
             },
-
             {
                 "title": "Kistendispo",
                 dataIndx: "kd", //# 10
@@ -401,7 +403,6 @@ var config = {
                     }
                 }]
             },
-
             {
                 "title": "Inventur",
                 dataIndx: "ina", //# 11

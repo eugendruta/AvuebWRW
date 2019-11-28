@@ -632,7 +632,7 @@ $(document).ready(function() {
 		var ind = 0;
 		for (let index = 0; index < config.obj.colModel.length; index++) {
 			for (
-				let index1 = 0;
+				var index1 = 0;
 				index1 < config.obj.colModel[index].colModel.length;
 				index1++
 			) {
@@ -640,19 +640,16 @@ $(document).ready(function() {
 					config.default.data.table1.columns[ind].visible === "true"
 						? false
 						: true;
-				//config.obj.colModel[1].colModel[0].hidden = false;
+
 				if (!config.obj.colModel[index].colModel[index1].hidden) {
-					if (config.obj.colModel[index].colModel[index1].title === "MD") {
+					/*
+          if (config.obj.colModel[index].colModel[index1].title === "MD") {
 						config.obj.colModel[index].colModel[index1].minWidth =
 							config.default.data.table1.columns[index].minWidth;
 						//200;
-						/*
-            $("#" + name + "width").val(
-							200
-							//config.obj.colModel[index].colModel[index1].minWidth
-            );
-            */
-					}
+          }
+          */
+					/*
 					UTIL.logger(
 						dialogname +
 							": showtable(tabelle): " +
@@ -661,13 +658,34 @@ $(document).ready(function() {
 							"].colModel[" +
 							index1 +
 							"].visible" +
-							"; colModel[index].colModel[index1].titel: " +
+							"; colModel[index].colModel[index1].titel/minWidth: " +
 							config.obj.colModel[index].colModel[index1].title +
-							"; colModel[index].colModel[index1].minWidth: " +
+							"/" +
+							config.obj.colModel[index].colModel[index1].minWidth
+					);
+          */
+
+					config.obj.colModel[index].colModel[index1].minWidth =
+						config.default.data["table1"].columns[ind].minWidth;
+					UTIL.logger(
+						dialogname +
+							": showtable(tabelle): index: " +
+							index +
+							"; index1: " +
+							index1 +
+							"; ind: " +
+							ind +
+							"; config.default.data[table1].columns[ind].name/minWidth:" +
+							config.default.data["table1"].columns[ind].name +
+							"/" +
+							config.default.data["table1"].columns[ind].minWidth +
+							"; config.obj.colModel[index].colModel[index1].title/minWidth:" +
+							config.obj.colModel[index].colModel[index1].title +
+							"/" +
 							config.obj.colModel[index].colModel[index1].minWidth
 					);
 				}
-				ind++;
+				ind = ind + 1;
 			}
 		}
 
