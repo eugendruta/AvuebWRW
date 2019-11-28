@@ -128,9 +128,9 @@ var config = {
                 "anzcolumns": "57",
                 "pageLength": 5,
                 "columns": [
-                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", "minWidth": 40 },
+                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 40 },
                     { "name": "AC_HERSTELLER", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 66 },
-                    { "name": "TEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 67},
+                    { "name": "TEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 67 },
                     { "name": "HERSTELLERTEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 68 },
                     { "name": "TEILBEZ", "typdata": "String", "visible": "true", summe: "", minWidth: 69 },
                     { "name": "LE", "typdata": "String", "visible": "true", summe: "", minWidth: 70 },
@@ -195,9 +195,10 @@ var config = {
         "colModel": [{
                 "title": "Teil",
                 "width": 100,
+                cls: 'font-weight: bold',
                 dataType: "string", //# 0
                 "colModel": [
-                    { "title": "MD", minWidth: 60 },
+                    { "title": "MD", minWidth: 60, cls: 'font-weight: bold' },
                     { "title": "HC", minWidth: 100 },
                     { "title": "Teilenr.", minWidth: 60 },
                     { "title": "H-Teilenr.", minWidth: 70 },
@@ -276,7 +277,7 @@ var config = {
             {
                 "title": "TR",
                 dataIndx: "tr",
-                cls: 'green', //# 4          
+                cls: 'red-col',
                 "colModel": [{
                     "title": "",
                     dataIndx: "tr",
@@ -336,7 +337,7 @@ var config = {
                 ]
             },
 
-              //{ "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
+            //{ "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
             {
                 "title": "QS-Status",
                 dataType: "string", //# 7
