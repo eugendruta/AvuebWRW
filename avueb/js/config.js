@@ -128,7 +128,7 @@ var config = {
                 "anzcolumns": "57",
                 "pageLength": 5,
                 "columns": [
-                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 40 },
+                    { "name": "AC_MANDANT", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 40, pq_cellcls: { "name": "green"} },
                     { "name": "AC_HERSTELLER", "typdata": "AppConst", "visible": "true", summe: "", minWidth: 66 },
                     { "name": "TEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 67 },
                     { "name": "HERSTELLERTEILENUMMER", "typdata": "String", "visible": "true", summe: "", minWidth: 68 },
@@ -210,7 +210,7 @@ var config = {
                 "width": 100,
                 dataType: "string", //# 1
                 "colModel": [
-                    { "title": "Nr.", minWidth: 60 },
+                    { "title": "Nr.", minWidth: 60, editable: true },
                     { "title": "Lagerort", minWidth: 60 },
                     { "title": "EZO", minWidth: 60 }
                 ]
