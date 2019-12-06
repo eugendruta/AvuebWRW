@@ -26,6 +26,9 @@ $(document).ready(function() {
         naviclick(event);
     });
 
+    $("#navigator").hide();
+    $("#navmini").val(">");
+
     customize = function customize(param) {
         if (param === "param") {
             $("#custom").dialog("open");
