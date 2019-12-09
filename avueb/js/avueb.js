@@ -247,7 +247,7 @@ $(document).ready(function() {
             );
         }
     });
-
+ 
     //Window close Event
     $(window).on("beforeunload", function() {
         localStorage.setItem(dialogname, "closed");
@@ -433,15 +433,15 @@ $(document).ready(function() {
                                 config.default.data.listboxen[j].table +
                                 "&constkey=" +
                                 config.default.data.listboxen[j].constkey +
-                                "&constkeyval=" +
-                                value;
+                                "&constkeyval='" +
+                                value + "'";
                         } else {
                             url +=
                                 config.default.data.listboxen[j].typ +
                                 "&table=" +
                                 config.default.data.listboxen[j].table;
                         }
-                        //UTIL.logger(dialogname + ': changelb(): url: ' + url);
+                        UTIL.logger(dialogname + ': changelb(): url: ' + url);
                         $.getJSON(url, function(data) {
                             //UTIL.logger(dialogname + ': initLbs(): data.name: ' + data[0].name);
                             $("#" + dependend)
