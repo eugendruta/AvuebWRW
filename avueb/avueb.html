@@ -55,6 +55,29 @@
       font-size: 30px;
     }
   </style>
+
+  <!-- SmartMenus core CSS (required) -->
+  <link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+  <link href="/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+
+  <!-- "sm-blue" menu theme (optional, you can use your own CSS, too) -->
+  <link href="../resources/smartmenus-1.1.0/css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+
+  <!-- #main-menu config - instance specific stuff not covered in the theme -->
+  <style type="text/css">
+    #main-menu {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      width: auto;
+    }
+    
+    #main-menu ul {
+      width: 12em;
+      /* fixed width only please - you can use the "subMenusMinWidth"/"subMenusMaxWidth" script options to override this if you like */
+    }
+  </style>
 </head>
 
 <body>
