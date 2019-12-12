@@ -1,27 +1,27 @@
 $(document).ready(function() {
-        dialogname = "avueb";
-        UTIL.logger(dialogname + ": ready(): Start");
+    dialogname = "avueb";
+    UTIL.logger(dialogname + ": ready(): Start");
 
-        $("nav div").click(function() {
-            $("ul").slideToggle();
-            $("ul ul").css("display", "none");
-        });
+    $("nav div").click(function() {
+        $("ul").slideToggle();
+        $("ul ul").css("display", "none");
+    });
 
-        // $("ul li").click(function(){
-        //     $("ul ul").slideUp();
-        //     $(this).find('ul').slideToggle();
-        // });
-        $('ul li').click(function() {
-            $(this).siblings().find('ul').slideUp();
-            $(this).find('ul').slideToggle();
-        });
+    // $("ul li").click(function(){
+    //     $("ul ul").slideUp();
+    //     $(this).find('ul').slideToggle();
+    // });
+    $('ul li').click(function() {
+        $(this).siblings().find('ul').slideUp();
+        $(this).find('ul').slideToggle();
+    });
 
-        $(window).resize(function() {
-            if ($(window).width() > 768) {
-                $("ul").removeAttr('style');
-            }
-        });
-    };
+    $(window).resize(function() {
+        if ($(window).width() > 768) {
+            $("ul").removeAttr('style');
+        }
+    });
+
     /*
     //SmartMenus jQuery init
     init = function () {
@@ -36,7 +36,8 @@ $(document).ready(function() {
 
     var table; // AJAX Tabelle
     var key;
-    var ctrl; UTIL.logger(
+    var ctrl;
+    UTIL.logger(
         dialogname + ": ready(): localStorage.length: " + localStorage.length
     );
     var browser = localStorage.getItem("browser");
@@ -57,7 +58,8 @@ $(document).ready(function() {
         naviclick(event);
     });
 
-    $("#navigator").hide(); $("#navmini").val(">");
+    $("#navigator").hide();
+    $("#navmini").val(">");
 
     customize = function customize(param) {
         if (param === "param") {
@@ -156,7 +158,8 @@ $(document).ready(function() {
                 }
             }
         }
-    }; customize("custfelder");
+    };
+    customize("custfelder");
 
     //Key event: F-tasten abfangen
     $(document).bind("keydown", function(e) {
@@ -930,4 +933,4 @@ $(document).ready(function() {
             });
         }
     };
-); // end ready
+}); // end ready
