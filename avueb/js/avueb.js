@@ -2,7 +2,10 @@ $(document).ready(function() {
     dialogname = "avueb";
     UTIL.logger(dialogname + ": ready(): Start");
 
-    $("nav div").click(function() {
+    $('#menu').tendina();
+
+    /*
+    $("nav div").click(function() { 
         $("ul").slideToggle();
         $("ul ul").css("display", "none");
     });
@@ -21,17 +24,6 @@ $(document).ready(function() {
             $("ul").removeAttr('style');
         }
     });
-
-    /*
-    //SmartMenus jQuery init
-    init = function () {
-      UTIL.logger(dialogname + ": init()");
-      $('#main-menu').smartmenus({
-        subMenusSubOffsetX: 1,
-        subMenusSubOffsetY: -8
-      });
-    };
-    init();
     */
 
     var table; // AJAX Tabelle

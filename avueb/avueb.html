@@ -56,10 +56,14 @@
         }
     </style>
 
-    <!-- Simple Dropdown Menu using jQuery and CSS -->
-    !-- Material Icons CSS -->
+    <!-- Simple Dropdown Menu using jQuery and CSS 
+    Material Icons CSS
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="../resources/css/mymenue.css" />
+    <link rel="stylesheet" href="../resources/css/mymenue.css">
+    -->
+
+    <script src="../resources/js/plugins/tendina.js"></script>
+    <link rel="stylesheet" href="../resources/css/mymenue.css">
 </head>
 
 <body>
@@ -75,22 +79,32 @@
 
     <div class="grid-container">
         <div class="item1">
-            <div id="mymenue">
-                <ul>
-                    <li><a href="#">Home</a></li>
+            <div>
+                <ul id="menu">
                     <li>
-                        <a href="#">Dropdown 1</a>
+                        <a href="#">Menu 1</a>
                         <ul>
-                            <li><a href="#">Product 1</a></li>
-                            <li><a href="#">Product 2</a></li>
-                            <li><a href="#">Product 3</a></li>
+                            <li><a href="#">Submenu 1</a></li>
+                        </ul>
+                        <a href="#">Menu 2</a>
+                        <ul>
+                            <li><a href="#">Submenu 2</a></li>
+                            <li><a href="#">Submenu 2</a></li>
+                            <li><a href="#">Submenu 2</a>
+                                <ul>
+                                    <li><a href="#">Subsubmenu 2</a></li>
+                                    <li><a href="#">Subsubmenu 2</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <a href="#">Menu 3</a>
+                        <ul>
+                            <li><a href="#">Submenu 3</a></li>
+                            <li><a href="#">Submenu 3</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
-
             <header class="header">
                 <div>
                     <table style="width: 100%;">
@@ -336,12 +350,10 @@
                   <input class="custausgabe" id="le" type="checkbox" checked>
                   <input class="custausgabew" id="lewidth" type="text" style="max-width: 25px;">          
                 </label>
-                        </label>
                         <label class="custlabel">Lagerort
                   <input class="custausgabe" id="lagerortbez" type="checkbox" checked>
                   <input class="custausgabew" id="lagerortbezwidth" type="text" style="max-width: 25px;">          
                 </label>
-                        </label>
                         <label class="custlabel">EZO
                   <input class="custausgabe" id="zoneaktuell" type="checkbox" checked>
                   <input class="custausgabew" id="zoneaktuellwidth" type="text" style="max-width: 25px;">          
