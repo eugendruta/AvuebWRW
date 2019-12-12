@@ -25,8 +25,6 @@
     <style>
         .item1 {
             grid-area: header;
-            width: 99.5%;
-            margin-left: 5px;
         }
         
         .item2 {
@@ -35,77 +33,128 @@
         
         .item3 {
             grid-area: main;
-            width: 100%;
         }
         
         .item5 {
             grid-area: footer;
-            width: 100%;
         }
         
         .grid-container {
             display: grid;
-            grid-template-areas: 'header header header header header header''menu main main main right right''menu footer footer footer footer footer';
-            background-color: lightgray; // #2196F3;
-            padding: 5px;
+            grid-template-areas: 'header header header header header header' 'menu main main main right right' 'menu footer footer footer footer footer';
+            grid-gap: 10px;
+            background-color: #2196F3;
+            padding: 10px;
             grid-gap: 5px;
-            width: 100%;
         }
         
         .grid-container>div {
             background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
             padding: 5px 0;
             font-size: 30px;
         }
     </style>
+
+    <!-- Simple Dropdown Menu using jQuery and CSS -->
+    !-- Material Icons CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../resources/css/mymenue.css" />
+
+    <!-- SmartMenus core CSS (required) 
+  <link href="../resources/smartmenus-1.1.0/css/sm-core-css.css" rel="stylesheet" type="text/css" />
+  <link href="../resources/smartmenus-1.1.0/css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="../resources/smartmenus-1.1.0/jquery.smartmenus.js"></script>
+  -->
 </head>
 
 <body>
-    <div class="item2">
-        <div style="float: left; top: 0px;">
-            <div id="navigator" title="Navigator" style="width: 230px; float: left; top: 0px; background-color: #EFFBF5; border: 2px solid black">
-            </div>
-            <input id="navmini" value="<" type="submit" style="height: 22px; width: 18px; background: #FAF9F8; font-weight: bold; font-size: 16px; padding-left: 0px; padding-top: 0px;">
-        </div>
-        <!-- Navigator -->
+    <!-- old Navigator
+  <div class="item2">
+    <div style="float: left; top: 0px;">
+      <div id="navigator" title="Navigator" style="width: 230px; float: left; top: 0px; background-color: #EFFBF5; border: 2px solid black">
+      </div>
+      <input id="navmini" value="<" type="submit" style="height: 22px; width: 18px; background: #FAF9F8; font-weight: bold; font-size: 16px; padding-left: 0px; padding-top: 0px;">
     </div>
+  </div>
+  -->
 
     <div class="grid-container">
         <div class="item1">
+
+            <div id="mymenue">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li>
+                        <a href="#">Dropdown 1</a>
+                        <ul>
+                            <li><a href="#">Product 1</a></li>
+                            <li><a href="#">Product 2</a></li>
+                            <li><a href="#">Product 3</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
             <header class="header">
-                <table>
-                    <tr>
-                        <td style="border: none; width: 215px; font-size: 16px; font-weight: bold;">
-                            <label>AVUEB - Auftragsübersicht</label>
-                        </td>
-                        <td style="border: none; text-align: left;">
-                            <div id='toolbarbuttons'>
-                                <button id="aktualisieren" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Aktualisieren" style="height: 30px;" onclick="aktualisieren()">
-                  <span class="ui-icon ui-icon-refresh"></span></button>
-                                <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail" style="height: 30px;" onclick="detail('avdet')">
-                  <span class="ui-icon ui-icon-zoomin"></span></button>
-                                <button id="neu" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Neu" style="height: 30px;">
-                  <span class="ui-icon ui-icon-document"></span></button>
-                                <button id="aendern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Ändern" style="height: 30px;">
-                  <span class="ui-icon ui-icon-document-b"></span></button>
-                                <button id="speichern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Speichern" style="height: 30px;">
-                  <span class="ui-icon ui-icon-check"></span></button>
-                                <button id="zurueck" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Zurück" style="height: 30px;">
-                  <span class="ui-icon ui-icon-arrowreturn-1-w"></span></button>
-                                <button id="loeschen" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Löschen" style="height: 30px;">
-                  <span class="ui-icon ui-icon-trash"></span></button>
-                                <button id="drucken" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Drucken" style="height: 30px;">
-                  <span class="ui-icon ui-icon-print"></span></button>
-                                <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Eingabehilfe" style="height: 30px;" onclick="customize('param')">
-                  <span class="ui-icon ui-icon-search"></span></button>
-                                <button id="hilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Hilfe" style="height: 30px;">
-                  <span class="ui-icon ui-icon-help"></span></button>
-                                <button id="favorit" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Favorit" style="height: 30px;">
-                  <span class="ui-icon ui-icon-star"></span></button>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                <div>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="border: none; width: 215px; font-size: 16px; font-weight: bold;">
+                                <label>AVUEB - Auftragsübersicht</label>
+                            </td>
+                            <td style="border: none; text-align: left;">
+                                <div id='toolbarbuttons'>
+                                    <button id="aktualisieren" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Aktualisieren" style="height: 30px;" onclick="aktualisieren()">
+                        <span class="ui-icon ui-icon-refresh"></span></button>
+                                    <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail" style="height: 30px;" onclick="detail('avdet')">
+                        <span class="ui-icon ui-icon-zoomin"></span></button>
+                                    <button id="neu" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Neu" style="height: 30px;">
+                        <span class="ui-icon ui-icon-document"></span></button>
+                                    <button id="aendern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Ändern" style="height: 30px;">
+                        <span class="ui-icon ui-icon-document-b"></span></button>
+                                    <button id="speichern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Speichern" style="height: 30px;">
+                        <span class="ui-icon ui-icon-check"></span></button>
+                                    <button id="zurueck" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Zurück" style="height: 30px;">
+                        <span class="ui-icon ui-icon-arrowreturn-1-w"></span></button>
+                                    <button id="loeschen" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Löschen" style="height: 30px;">
+                        <span class="ui-icon ui-icon-trash"></span></button>
+                                    <button id="drucken" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Drucken" style="height: 30px;">
+                        <span class="ui-icon ui-icon-print"></span></button>
+                                    <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Eingabehilfe" style="height: 30px;" onclick="customize('param')">
+                        <span class="ui-icon ui-icon-search"></span></button>
+                                    <button id="hilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Hilfe" style="height: 30px;">
+                        <span class="ui-icon ui-icon-help"></span></button>
+                                    <button id="favorit" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Favorit" style="height: 30px;">
+                        <span class="ui-icon ui-icon-star"></span></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- Horizontal menue
+        <div>
+        <ul id="main-menu" class="sm sm-blue">
+          <li><a href="#">Item 1</a></li>
+
+          <li><a href="http://www.smartmenus.org/about/">About</a>
+            <ul>
+              <li><a href="http://www.smartmenus.org/about/introduction-to-smartmenus-jquery/">Introduction to SmartMenus jQuery</a></li>
+              <li><a href="http://www.smartmenus.org/about/themes/">Demos + themes</a></li>
+              <li><a href="http://vadikom.com/about/#vasil-dinkov">The author</a></li>
+              <li><a href="http://www.smartmenus.org/download/">Download</a></li>
+            </ul>
+          </li>
+
+          <li><a href="http://www.smartmenus.org/download/">Download</a></li>
+
+          <li><a href="#">Item 3</a></li>
+        </ul>
+    </div>
+    -->
             </header>
             <!-- .header-->
         </div>
@@ -292,105 +341,107 @@
 
                         <b>Spalten Ausgabeblock </b> <br>
                         <label class="custlabel">Mandant
-              <input class="custausgabe" id="mandant" type="checkbox" checked>
-              <input class="custausgabew" id="mandantwidth" type="text" style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="mandant" type="checkbox" checked>
+                  <input class="custausgabew" id="mandantwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">HC
-              <input class="custausgabe" id="hersteller " type="checkbox " checked>
-              <input class="custausgabew" id="herstellerwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="hersteller" type="checkbox" checked>
+                  <input class="custausgabew" id="herstellerwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Teilenummer
-              <input class="custausgabe" id="teilenummer " type="checkbox " checked>
-              <input class="custausgabew" id="teilenummerwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="teilenummer" type="checkbox" checked>
+                  <input class="custausgabew" id="teilenummerwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">H-Teilenummer
-              <input class="custausgabe" id="herstellerteilenummer " type="checkbox " checked>
-              <input class="custausgabew" id="herstellerteilenummerwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="herstellerteilenummer" type="checkbox" checked>
+                  <input class="custausgabew" id="herstellerteilenummerwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Bezeichnung
-              <input class="custausgabe" id="teilbez " type="checkbox " checked>
-              <input class="custausgabew" id="teilbezwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="teilbez" type="checkbox" checked>
+                  <input class="custausgabew" id="teilbezwidth" type="text" style="max-width: 25px;">          
+                </label>
                         <label class="custlabel">Le-Nr
-              <input class="custausgabe" id="le " type="checkbox " checked>
-              <input class="custausgabew" id="lewidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="le" type="checkbox" checked>
+                  <input class="custausgabew" id="lewidth" type="text" style="max-width: 25px;">          
+                </label>
+                        </label>
                         <label class="custlabel">Lagerort
-              <input class="custausgabe" id="lagerortbez " type="checkbox " checked>
-              <input class="custausgabew" id="lagerortbezwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="lagerortbez" type="checkbox" checked>
+                  <input class="custausgabew" id="lagerortbezwidth" type="text" style="max-width: 25px;">          
+                </label>
+                        </label>
                         <label class="custlabel">EZO
-              <input class="custausgabe" id="zoneaktuell " type="checkbox " checked>
-              <input class="custausgabew" id="zoneaktuellwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="zoneaktuell" type="checkbox" checked>
+                  <input class="custausgabew" id="zoneaktuellwidth" type="text" style="max-width: 25px;">          
+                </label>
                         <label class="custlabel">Inventur
-              <input class="custausgabe" id="inventur " type="checkbox " checked>
-              <input class="custausgabew" id="inventurwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="inventur" type="checkbox" checked>
+                  <input class="custausgabew" id="inventurwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Inventurgrund
-              <input class="custausgabe" id="inventurgrund " type="checkbox " checked>
-              <input class="custausgabew" id="inventurwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="inventurgrund" type="checkbox" checked>
+                  <input class="custausgabew" id="inventurgrundwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Best. total
-              <input class="custausgabe" id="bestandtotal " type="checkbox " checked>
-              <input class="custausgabew" id="bestandtotalwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="bestandtotal" type="checkbox" checked>
+                  <input class="custausgabew" id="bestandtotalwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Best. frei
-              <input class="custausgabe" id="bestandfrei " type="checkbox " checked>
-              <input class="custausgabew" id="bestandfreiwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="bestandfrei" type="checkbox" checked>
+                  <input class="custausgabew" id="bestandfreiwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Best. reserviert
-              <input class="custausgabe" id="bestandreserviert " type="checkbox " checked>
-              <input class="custausgabew" id="bestandreserviertwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="bestandreserviert" type="checkbox" checked>
+                  <input class="custausgabew" id="bestandreserviertwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Best. gesperrt
-              <input class="custausgabe" id="bestandgesperrt " type="checkbox " checked>
-              <input class="custausgabew" id="bestandgesperrtwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="bestandgesperrt" type="checkbox" checked>
+                  <input class="custausgabew" id="bestandgesperrtwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Transport
-              <input class="custausgabe" id="transport " type="checkbox " checked>
-              <input class="custausgabew" id="transportwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="transport" type="checkbox" checked>
+                  <input class="custausgabew" id="transportwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Int. sperre
-              <input class="custausgabe" id="internesperre " type="checkbox " checked>
-              <input class="custausgabew" id="internesperrewidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="internesperre" type="checkbox" checked>
+                  <input class="custausgabew" id="internesperrewidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Dispostatus
-              <input class="custausgabe" id="dispostatus " type="checkbox " checked>
-              <input class="custausgabew" id="dispostatuswidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="dispostatus" type="checkbox" checked>
+                  <input class="custausgabew" id="dispostatuswidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">QS-Status
-              <input class="custausgabe" id="qsstatus " type="checkbox " checked>
-              <input class="custausgabew" id="qsstatuswidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="qsstatus" type="checkbox" checked>
+                  <input class="custausgabew" id="qsstatuswidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Hostlager
-              <input class="custausgabe" id="hostlager " type="checkbox " checked>
-              <input class="custausgabew" id="hostlagerwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="hostlager" type="checkbox" checked>
+                  <input class="custausgabew" id="hostlagerwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Avisnr
-              <input class="custausgabe" id="avisnr " type="checkbox " checked>
-              <input class="custausgabew" id="avisnrwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="avisnr" type="checkbox" checked>
+                  <input class="custausgabew" id="avisnrwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Kistenr
-              <input class="custausgabe" id="kistenr " type="checkbox " checked>
-              <input class="custausgabew" id="kistenrwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="kistenr" type="checkbox" checked>
+                  <input class="custausgabew" id="kistenrwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Containernr
-              <input class="custausgabe" id="containernr " type="checkbox " checked>
-              <input class="custausgabew" id="containernrwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="containernr" type="checkbox" checked>
+                  <input class="custausgabew" id="containernrwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Kistendispo
-              <input class="custausgabe" id="kistendispo " type="checkbox " checked>
-              <input class="custausgabew" id="kistendispowidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="kistendispo" type="checkbox" checked>
+                  <input class="custausgabew" id="kistendispowidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Inv.avisierung
-              <input class="custausgabe" id="inventuravisierung " type="checkbox " checked>
-              <input class="custausgabew" id="inventuravisierungwidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="inventuravisierung" type="checkbox" checked>
+                  <input class="custausgabew" id="inventuravisierungwidth" type="text" style="max-width: 25px;">
+                </label>
                         <label class="custlabel">Verp.menge
-              <input class="custausgabe" id="verpackungsmenge " type="checkbox " checked>
-              <input class="custausgabew" id="verpackungsmengewidth " type="text " style="max-width: 25px; ">
-            </label>
+                  <input class="custausgabe" id="verpackungsmenge" type="checkbox" checked>
+                  <input class="custausgabew" id="verpackungsmengewidth" type="text" style="max-width: 25px;">
+                </label>
 
                         <table style="border: none; width: 200px; ">
                             <tr>
