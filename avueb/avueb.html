@@ -22,79 +22,48 @@
   <!--ParamQuery Grid files-->
   <link rel="stylesheet" href="../pqgrid/pqgrid.min.css" />
   <script type="text/javascript" src="../pqgrid/pqgrid.min.js"></script>
-  <style>
-    .item1 {
-      grid-area: header;
-    }
-    
-    .item2 {
-      grid-area: menu;
-    }
-    
-    .item3 {
-      grid-area: main;
-    }
-    
-    .item5 {
-      grid-area: footer;
-    }
-    
-    .grid-container {
-      display: grid;
-      grid-template-areas: 'header header header header header header' 'menu main main main right right' 'menu footer footer footer footer footer';
-      grid-gap: 10px;
-      background-color: #2196F3;
-      padding: 10px;
-      grid-gap: 5px;
-    }
-    
-    .grid-container>div {
-      background-color: rgba(255, 255, 255, 0.8);
-      text-align: center;
-      padding: 5px 0;
-      font-size: 30px;
-    }
-  </style>
-
   <!-- Simple Dropdown Menu using jQuery and CSS -->
-  !-- Material Icons CSS -->
+  <!-- Material Icons CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../resources/css/mymenue.css" />
-
-  <!-- SmartMenus core CSS (required) 
-  <link href="../resources/smartmenus-1.1.0/css/sm-core-css.css" rel="stylesheet" type="text/css" />
-  <link href="../resources/smartmenus-1.1.0/css/sm-blue/sm-blue.css" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="../resources/smartmenus-1.1.0/jquery.smartmenus.js"></script>
-  -->
 </head>
 
 <body>
-  <!-- old Navigator
-  <div class="item2">
-    <div style="float: left; top: 0px;">
-      <div id="navigator" title="Navigator" style="width: 230px; float: left; top: 0px; background-color: #EFFBF5; border: 2px solid black">
-      </div>
-      <input id="navmini" value="<" type="submit" style="height: 22px; width: 18px; background: #FAF9F8; font-weight: bold; font-size: 16px; padding-left: 0px; padding-top: 0px;">
-    </div>
-  </div>
-  -->
-
   <div class="grid-container">
     <div class="item1">
 
+      <!-- Menue -->
       <div id="mymenue">
         <ul>
-          <li><a href="#">Home</a></li>
-          <li>
-            <a href="#">Dropdown 1</a>
+          <li class="myitem"><a href="#">Home</a></li>
+
+          <li class="myitemf">
+            <a href="#">Administration</a>
             <ul>
-              <li><a href="#">Product 1</a></li>
-              <li><a href="#">Product 2</a></li>
-              <li><a href="#">Product 3</a></li>
+              <li class="myitem"><a href="#">ADUEB - Übersicht</a></li>
+              <li class="myitem"><a href="#">AUUEB - Auftragsübersicht</a></li>
             </ul>
           </li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">FAQ</a></li>
+
+          <li class="myitemf">
+            <a href="#">Stammdaten</a>
+            <ul>
+              <li class="myitemf">
+                <a href="#" style="color: blue; font-size: medium;">WA1</a>
+                <ul>
+                  <li class="myitem"><a href="#"> WAUE1 - WA1-Übersicht</a></li>
+                  <li class="myitem"><a href="#"> POUEB - Positionsübersicht</a></li>
+
+                  <li class="myitem"><a href="#">WA2</a></li>
+                </ul>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="myitem"><a href="#">About</a></li>
+
+          <li class="myitem"><a href="#">FAQ</a></li>
         </ul>
       </div>
 
