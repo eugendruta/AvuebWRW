@@ -16,7 +16,7 @@
   <link href="../resources/css/main.css" rel="stylesheet">
   <script src="../../jslibwrw/globalconfig.js"></script>
   <script src="../../jslibwrw/util.js"></script>
-  <script src="../../jslibwrw/navigator.js "></script>
+  <script src="../../jslibwrw/navigator.js"></script>
   <script src="js/config.js"></script>
   <script src="js/avueb.js"></script>
   <!--ParamQuery Grid files-->
@@ -40,8 +40,11 @@
           <li class="myitemf">
             <a href="#">Administration</a>
             <ul>
-              <li class="myitem"><a href="#">ADUEB - Übersicht</a></li>
-              <li class="myitem"><a href="#">AUUEB - Auftragsübersicht</a></li>
+              <li class="myitem">
+                <a href="http://localhost:8090/BsuebWRW/bsueb/bsueb.html" target="_blank">BSUEB - Bestandsübersicht</a></li>
+              <li class=" myitem">
+                <a href="http://localhost:8090/BprotWRW/bprot/bprot.html" target="_blank">BPROT - Bprotübersicht</a>
+              </li>
             </ul>
           </li>
 
@@ -78,7 +81,7 @@
                 <div id='toolbarbuttons'>
                   <button id="aktualisieren" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Aktualisieren" style="height: 30px;" onclick="aktualisieren()">
                         <span class="ui-icon ui-icon-refresh"></span></button>
-                  <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail" style="height: 30px;" onclick="detail('avdet')">
+                  <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail" style="height: 30px;" onclick="detail( 'avdet')">
                         <span class="ui-icon ui-icon-zoomin"></span></button>
                   <button id="neu" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Neu" style="height: 30px;">
                         <span class="ui-icon ui-icon-document"></span></button>
@@ -92,7 +95,7 @@
                         <span class="ui-icon ui-icon-trash"></span></button>
                   <button id="drucken" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Drucken" style="height: 30px;">
                         <span class="ui-icon ui-icon-print"></span></button>
-                  <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Eingabehilfe" style="height: 30px;" onclick="customize('param')">
+                  <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Eingabehilfe" style="height: 30px;" onclick="customize( 'param')">
                         <span class="ui-icon ui-icon-search"></span></button>
                   <button id="hilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Hilfe" style="height: 30px;">
                         <span class="ui-icon ui-icon-help"></span></button>
@@ -103,29 +106,8 @@
             </tr>
           </table>
         </div>
-
-        <!-- Horizontal menue
-        <div>
-        <ul id="main-menu" class="sm sm-blue">
-          <li><a href="#">Item 1</a></li>
-
-          <li><a href="http://www.smartmenus.org/about/">About</a>
-            <ul>
-              <li><a href="http://www.smartmenus.org/about/introduction-to-smartmenus-jquery/">Introduction to SmartMenus jQuery</a></li>
-              <li><a href="http://www.smartmenus.org/about/themes/">Demos + themes</a></li>
-              <li><a href="http://vadikom.com/about/#vasil-dinkov">The author</a></li>
-              <li><a href="http://www.smartmenus.org/download/">Download</a></li>
-            </ul>
-          </li>
-
-          <li><a href="http://www.smartmenus.org/download/">Download</a></li>
-
-          <li><a href="#">Item 3</a></li>
-        </ul>
-    </div>
-    -->
       </header>
-      <!-- .header-->
+      <!-- header-->
     </div>
 
     <div class="item3">
@@ -212,12 +194,12 @@
                   <select id="intsperrelb" style="width: 100px;"> </select>
                 </label>
             <br>
-            <input id="anzeigen1" value="Anzeigen" type="submit" class="butn" style="max-width: 90px; float: left;" onclick="showtable('table1')">
+            <input id="anzeigen1" value="Anzeigen" type="submit" class="butn" style="max-width: 90px; float: left;" onclick="showtable( 'table1')">
             <input id="reset1" value="Reset" type="submit" class="butn" style="width: 90px;">
           </div>
 
           <!-- Customize -->
-          <div id="custom" style="left: 5px; display: none">
+          <div id="custom" style="left: 5px; display: none;">
             <b>Selektionskriterien</b> <br>
             <label class="custlabel">LE-Nr
                   <input class="custinput" id="lenrcust" type="checkbox" checked>
@@ -299,10 +281,10 @@
             <table style="border: none; width: 200px;">
               <tr>
                 <td class="tdlabelleft">
-                  <input id="resetcust" value="Reset" type="submit" style="width: 90px;" onclick="resetcust('eingabe', 'reset')">
+                  <input id="resetcust" value="Reset" type="submit" style="width: 90px;" onclick="resetcust( 'eingabe', 'reset')">
                 </td>
                 <td class="tdlabelleft">
-                  <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust('eingabe', 'clear')">
+                  <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust( 'eingabe', 'clear')">
                 </td>
               </tr>
             </table>
@@ -415,13 +397,13 @@
             <table style="border: none; width: 200px;">
               <tr>
                 <td class="tdlabelleft">
-                  <input id="speichernausg" value="Speichern" type="submit" style="max-width: 90px;" onclick="speicherncust('table1')">
+                  <input id="speichernausg" value="Speichern" type="submit" style="max-width: 90px;" onclick="speicherncust( 'table1')">
                 </td>
                 <td class="tdlabelleft">
-                  <input id="resetausg" value="Reset" type="submit" style="width: 90px;" onclick="resetcust('ausgabe', 'reset')">
+                  <input id="resetausg" value="Reset" type="submit" style="width: 90px;" onclick="resetcust( 'ausgabe', 'reset')">
                 </td>
                 <td class="tdlabelleft">
-                  <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust('ausgabe', 'clear')">
+                  <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust( 'ausgabe', 'clear')">
                 </td>
               </tr>
             </table>

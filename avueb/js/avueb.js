@@ -7,28 +7,6 @@ $(document).ready(function () {
       + $(this).last().text());
   });
 
-  /*
-  $("#product2").click(function () {
-    UTIL.logger(dialogname + ": product2: Click: text: "
-      + $(this).text());
-  });
-  */
-  /*
-  $("nav div").click(function () {
-    $("ul").slideToggle();
-    $("ul ul").css("display", "none");
-  });
-  
-   $("ul li").click(function(){
-       $("ul ul").slideUp();
-       $(this).find('ul').slideToggle();
-   });
-  $('ul li').click(function () {
-    //$(this).siblings().find('ul').slideUp();
-    //$(this).find('ul').slideToggle();
-    UTIL.logger(dialogname + ": Menue: Click");
-  });   
-  */
   $(window).resize(function () {
     if ($(window).width() > 768) {
       $("ul").removeAttr('style');
@@ -75,8 +53,10 @@ $(document).ready(function () {
   $("#navmini").val(">");
 
   customize = function customize(param) {
+    UTIL.logger(dialogname + ": customize(): param: " + param);
+
     if (param === "param") {
-      $("#custom").dialog("open");
+      $("#custom").dialog('open');
     } else if (param === "custfelder") {
       //Eingabefelder
       let jsonstring = localStorage.getItem(dialogname + ".eingabe");
