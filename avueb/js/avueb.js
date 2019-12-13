@@ -2,21 +2,9 @@ $(document).ready(function() {
     dialogname = "avueb";
     UTIL.logger(dialogname + ": ready(): Start");
 
-    $('#menu').tendina();
-
-    /*
-    $("nav div").click(function() { 
-        $("ul").slideToggle();
-        $("ul ul").css("display", "none");
-    });
-
-    // $("ul li").click(function(){
-    //     $("ul ul").slideUp();
-    //     $(this).find('ul').slideToggle();
-    // });
-    $('ul li').click(function() {
-        $(this).siblings().find('ul').slideUp();
-        $(this).find('ul').slideToggle();
+    $('.myitem').click(function() {
+        UTIL.logger(dialogname + "; Click: text: " +
+            $(this).last().text());
     });
 
     $(window).resize(function() {
@@ -24,6 +12,17 @@ $(document).ready(function() {
             $("ul").removeAttr('style');
         }
     });
+
+    /*
+    //SmartMenus jQuery init
+    init = function () {
+      UTIL.logger(dialogname + ": init()");
+      $('#main-menu').smartmenus({
+        subMenusSubOffsetX: 1,
+        subMenusSubOffsetY: -8
+      });
+    };
+    init();
     */
 
     var table; // AJAX Tabelle
@@ -54,8 +53,10 @@ $(document).ready(function() {
     $("#navmini").val(">");
 
     customize = function customize(param) {
+        UTIL.logger(dialogname + ": customize(): param: " + param);
+
         if (param === "param") {
-            $("#custom").dialog("open");
+            $("#custom").dialog('open');
         } else if (param === "custfelder") {
             //Eingabefelder
             let jsonstring = localStorage.getItem(dialogname + ".eingabe");

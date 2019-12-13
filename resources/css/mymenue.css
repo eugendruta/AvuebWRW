@@ -22,11 +22,8 @@ ul {
     background: lightgray;
     display: none;
     cursor: pointer;
-    color: #830f0f;
-    font-size: 14px;
-    z-index: 100;
-    position: relative;
-    height: 10px;
+    color: #292929;
+    font-size: 12px;
 }
 
 
@@ -35,7 +32,7 @@ ul {
     padding: 0px;
     background: lightgrey;
     list-style-type: none;
-    position: relative;
+    z-index: 100;
 }
 
 ul li {
@@ -69,6 +66,8 @@ ul li:hover ul {
     display: block;
 }
 
+
+/*
 @media (max-width: 768px) {
     div {
         display: block;
