@@ -11,74 +11,58 @@ $(document).ready(function () {
   }, {
     label: 'Stammdaten', ....
   */
-  UTIL.logger(dialogname + "; data[0].children[0].label: " +
+  UTIL.logger(dialogname + "; data[0].label: " +
+    data[0].label + "; data[0].children[0].label: " +
     data[0].children[1].label);
 
   //Create Menue
-  /*
-  <div id="menue">
-    <ul>
-      <li class="myitem"><a href="#">Home</a></li>
-
-      <li class="myitemf">
-        <a href="#">Administration</a>
-        <ul>
-          <li class="myitem">
-            <a href="http://localhost:8090/BsuebWRW/bsueb/bsueb.html" target="_blank">BSUEB - Bestandsübersicht</a></li>
-          <li class=" myitem">
-            <a href="http://localhost:8090/BprotWRW/bprot/bprot.html" target="_blank">BPROT - Bprotübersicht</a>
-          </li>
-        </ul>
-      </li>
-      ...
-    </ul>
-  </div>    
-    */
   $("#menue").append("<ul> "
-    + "<li class='myitem'><a href='#'>Home</a></li>"
-
-    + "<li class='myitemf'>"
-    + "<a href='#'>Administration</a>"
-    + "<ul>"
-    + "<li class='myitem'>"
-    + "<a href='http://localhost:8090/BsuebWRW/bsueb/bsueb.html' target='_blank'> "
-    + "BSUEB - Bestandsübersicht</a></li>"
-    + "<li class='myitem'>"
-    + "<a href='http://localhost:8090/BprotWRW/bprot/bprot.html' target='_blank'> "
-    + "BPROT - Bestandsprotokoll</a></li>"
+    + "<li class='myitemf'><a href='#'>" + data[0].label + "</a>"
+    + " <ul>"
+    + "   <li class='myitem'>"
+    + "     <input id='adueb' value='" + data[0].children[0].label
+    + "       ' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia("
+    + "\"" + data[0].children[1].label + "\" )'>"
+    + "   </li>"
+    + "   <li class='myitem'>"
+    + "     <input id='auueb' value='" + data[0].children[1].label
+    + "       ' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"auueb\")'>"
+    + "   </li>"
+    + " </ul>"
     + "</li>"
-    + "</ul>"
 
-    + "<li class='myitemf'>"
-    + "<a href='#'>Stammdaten</a>"
+    + "<li class='myitemf'><a href='#'>" + data[1].label + "</a>"
     + "<ul>"
     + "  <li class='myitemf'>"
     + "    <a href='#' style='color: blue; font-size: medium;'>WA1</a>"
     + "    <ul>"
-    + "      <li class='myitem'><a href='#'> WAUE1 - WA1-Übersicht</a></li>"
-    + "      <li class='myitem'><a href='#'> POUEB - Positionsübersicht</a></li>"
+    + "     <li class='myitem'>"
+    + "       <input id='bsueb' value='    WAUE1 - WA1-Übersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"waueb\")'>"
+    + "     </li>"
+    + "     <li class='myitem'>"
+    + "       <input id=avueb' value='    POUEB - Positionsübersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"poueb\")'>"
+    + "     </li>"
     + "      <li class='myitem'><a href='#''>WA2</a></li>"
     + "    </ul>"
     + "  </li>"
     + "</ul>"
     + "</li>"
 
-    + "<li class='myitemf'>"
-    + "<a href='#'>Bestandsverwaltung</a>"
+    + "<li class='myitemf'><a href='#'>" + data[4].label + "</a>"
     + "<ul>"
     + "<li class='myitemf'>"
     + "  <ul>"
     + "   <li class='myitem'>"
-    + "     <input id='bsueb' value=' BSUEB - Bestands-Übersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"bsueb\")'>"
+    + "     <input id='bsueb' value='    BSUEB - Bestands-Übersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"bsueb\")'>"
     + "   </li>"
     + "   <li class='myitem'>"
-    + "    <input id='bsueb' value=' AVUEB - Auftragsübersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"avueb\")'>"
-    + "  </li>"
-    + "   <li class='myitem'>"
-    + "     <input id='avdet' value=' AVDET - Auftragsdetail' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"avdet\")'>"
+    + "    <input id=avueb' value='    AVUEB - Auftragsübersicht' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"avueb\")'>"
     + "   </li>"
     + "   <li class='myitem'>"
-    + "     <input id='bprot' value=' BPROT - Bestandsprotpkoll' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"bprot\")'>"
+    + "     <input id='avdet' value='    AVDET - Auftragsdetail' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"avdet\")'>"
+    + "   </li>"
+    + "   <li class='myitem'>"
+    + "     <input id='bprot' value='    BPROT - Bestandsprotpkoll' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(\"bprot\")'>"
     + "   </li>"
     + " </ul>"
     + "</li>"

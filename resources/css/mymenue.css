@@ -22,6 +22,10 @@ ul li:hover {
     background: lightskyblue;
 }
 
+input:hover {
+    background: lightskyblue;
+}
+
 ul ul {
     position: absolute;
     min-width: auto;

@@ -167,6 +167,7 @@ body {
 .header {
     height: 35px;
     background: #FFE680;
+    /* min-width: 1040px; */
 }
 
 
