@@ -1,3 +1,11 @@
+.myitemf {
+    background: lightsalmon;
+}
+
+.myitem {
+    background: lightgray;
+}
+
 ul {
     margin: 0px;
     padding: 0px;
@@ -40,24 +48,4 @@ ul ul li {
 
 ul li:hover ul {
     display: block;
-}
-
-@media (max-width: 768px) {
-    div {
-        display: block;
-        background: greenyellow;
-    }
-    ul {
-        display: none;
-        position: static;
-        background: greenyellow; //#e3e3e3;
-    }
-    ul li {
-        display: block;
-        background: greenyellow;
-    }
-    ul ul {
-        position: static;
-        background: #e3e3e3;
-    }
 }
