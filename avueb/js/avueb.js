@@ -2,40 +2,39 @@ $(document).ready(function() {
     dialogname = "avueb";
     UTIL.logger(dialogname + ": ready(): Start");
 
-    //Create Menue
-    /*
-    $("#menue").append("<ul>")
+    //Create Menue    
+    var _menue = "<ul>"
     for (var m = 0; m < 5; m++) {
-      $("#menue").append("<li class='myitemf'>" + data[m].label + "&nbsp;&nbsp;&nbsp;" + "</li>")
-      UTIL.logger(dialogname + ": ready(): data[" + m + "].label: " + data[m].label);
-      if (data[m].children != undefined) {
-        $("#menue").append("<ul>")
-        for (var k = 0; k < data[m].children.length; k++) {
-          $("#menue").append(
-            "   <li class='myitem'>" +
-            "     <input id='adueb' value='" + data[m].children[k].label +
-            "       ' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(" +
-            "       \"" + data[m].children[k].label + "\" )'>" +
-            "   </li>")
+        _menue += "<li class='myitemf'>" + data[m].label + "&nbsp;&nbsp;&nbsp;"
 
-          UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].label: " + data[m].children[k].label);
-          if (data[m].children[k].children != undefined) {
-            for (var j = 0; j < data[m].children[k].children.length; j++) {
-              UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].children[" + j + "].label: " + data[m].children[k].children[j].label);
-              $("#menue").append("<li class='myitem'>" +
-                "     <input id='waue1' value='     " + data[1].children[0].children[0].label + //WAUE1: WA1-Übersicht
-                "       ' type='submit' style='max-width: 250px; float: left;' onclick='naviclickdia(" +
-                "       \"" + data[1].children[0].children[0].label + "\" )'>" +
-                "   </li>")
+        UTIL.logger(dialogname + ": ready(): data[" + m + "].label: " + data[m].label + ";data[m].children: " + data[m].children);
+        if (data[m].children != undefined) {
+            _menue += "<ul>"
+            for (var k = 0; k < data[m].children.length; k++) {
+                _menue += "<li class='myitem'>" +
+                    "     <input value='" + data[m].children[k].label +
+                    "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].label + "\")'>" +
+                    "   </li>"
+
+                UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].label: " + data[m].children[k].label);
+                if (data[m].children[k].children != undefined) {
+                    for (var j = 0; j < data[m].children[k].children.length; j++) {
+                        UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].children[" + j + "].label: " + data[m].children[k].children[j].label);
+                        _menue += "<li class='myitem'>" +
+                            "     <input value='" + data[1].children[0].children[0].label +
+                            "' type='submit' onclick='naviclickdia(\"" + data[1].children[0].children[0].label + "\")'>" +
+                            "   </li>"
+                    }
+                }
             }
-          }
+            _menue += "</li>"
+            _menue += "</ul>"
         }
-        $("#menue").append("</ul>")
     }
-    //$("#menue").append("</li>")
-    */
+    _menue += "</ul>"
+    $("#menue").append(_menue)
 
-
+    /*
     $("#menue").append("<ul>" +
         //Administration
         "<li class='myitemf'>" + data[0].label + "&nbsp;&nbsp;&nbsp;" +
@@ -92,8 +91,9 @@ $(document).ready(function() {
         "   </li>" +
         " </ul>" +
         "</li>" +
-        "</li>"
+        "</ul>"
     );
+    */
 
     $('.myitem').click(function() {
         UTIL.logger(dialogname + "; Click: text: " +
