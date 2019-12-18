@@ -1,6 +1,6 @@
 .myitemf {
-    background: lightgray;
-    color: white;
+    background: white;
+    color: black;
 }
 
 .myitem {
@@ -31,9 +31,11 @@ ul li:hover {
     background: lightskyblue;
 }
 
+/*
 input:hover {
     background: lightskyblue;
 }
+*/
 
 ul ul {
     position: absolute;

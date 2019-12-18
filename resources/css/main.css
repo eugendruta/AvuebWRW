@@ -222,6 +222,7 @@ body {
 
 .item1 {
     grid-area: header;
+    background-color: lightsteelblue;
 }
 
 .item2 {
@@ -240,13 +241,13 @@ body {
     display: grid;
     grid-template-areas: 'header header header header header header' 'menu main main main right right' 'menu footer footer footer footer footer';
     grid-gap: 5px;
-    background-color: #2196F3;
+    background-color: lightsteelblue;
     padding: 5px;
     grid-gap: 1px;
 }
 
 .grid-container>div {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: lightsteelblue;
     padding: 5px 0;
     font-size: 30px;
 }
