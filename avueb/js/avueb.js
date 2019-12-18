@@ -11,19 +11,19 @@ $(document).ready(function () {
     if (data[m].children != undefined) {
       _menue += "<ul>"
       for (var k = 0; k < data[m].children.length; k++) {
-        _menue += "<li class='myitem'>" +
-          "     <input value='" + data[m].children[k].label +
+        _menue += "<li class='myitem'>" + "     <input value='" + data[m].children[k].label +
           "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].label + "\")'>" +
           "   </li>"
 
         UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].label: " + data[m].children[k].label);
         if (data[m].children[k].children != undefined) {
           for (var j = 0; j < data[m].children[k].children.length; j++) {
-            UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].children[" + j + "].label: " + data[m].children[k].children[j].label);
+            UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].children[" + j + "].label: "
+              + data[m].children[k].children[j].label);
             _menue += "<li class='myitem'>" +
               "     <input value='" + data[m].children[k].children[j].label +
-              "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].children[j].label + "\")'>" +
-              "   </li>"
+              "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].children[j].label + "\")'>"
+              + "   </li>"
           }
         }
       }
@@ -34,70 +34,8 @@ $(document).ready(function () {
   _menue += "</ul>"
   $("#menue").append(_menue)
 
-  /*
-  $("#menue").append("<ul>" +
-      //Administration
-      "<li class='myitemf'>" + data[0].label + "&nbsp;&nbsp;&nbsp;" +
-      " <ul>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[0].children[0].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[0].children[0].label + "\")'>" +
-      "   </li>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[0].children[1].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[0].children[1].label + "\")'>" +
-      "   </li>" +
-      " </ul>" +
-      "</li>" +
-
-      //Stammdaten        
-      //{label: 'Stammdaten',children: [{label: 'WA 1',children: [{ label: 'WAUE1: WA1-Übersicht' },{ label: 'POUEB: Positions-Übersicht' } ] }, { label: 'WA 2' }] } 
-      "<li class='myitemf'>" + data[1].label + "&nbsp;&nbsp;&nbsp;" + //Stammdaten
-      " <ul>" +
-      "   <li class='myitemf'>" + data[1].children[0].label + "</li>" + //'WA 1'
-
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[1].children[0].children[0].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[1].children[0].children[0].label + "\")'>" +
-      "   </li>" +
-
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[1].children[0].children[1].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[1].children[0].children[1].label + "\")'>" +
-      "   </li>" +
-
-      "   <li class='myitemf'>" + data[1].children[1].label + "</li>" + //'WA 2'
-      " </ul>" +
-      "</li>" +
-
-      //Bestandsverwaltung 
-      "<li class='myitemf'>" + data[4].label + "&nbsp;&nbsp;&nbsp;" +
-      " <ul>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[4].children[0].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[4].children[0].label + "\")'>" +
-      "   </li>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[4].children[1].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[4].children[1].label + "\")'>" +
-      "   </li>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[4].children[2].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[4].children[2].label + "\")'>" +
-      "   </li>" +
-      "   <li class='myitem'>" +
-      "     <input class='myitem' value='" + data[4].children[3].label +
-      "' type='submit' onclick='naviclickdia(\"" + data[4].children[3].label + "\")'>" +
-      "   </li>" +
-      " </ul>" +
-      "</li>" +
-      "</ul>"
-  );
-  */
-
   $('.myitem').click(function () {
-    UTIL.logger(dialogname + "; Click: text: " +
-      $(this).last().text());
+    UTIL.logger(dialogname + "; Click: text: " + $(this).last().text());
   });
 
   $(window).resize(function () {
@@ -184,47 +122,16 @@ $(document).ready(function () {
             name = name.toLowerCase();
             config.default.data["table1"].columns[j].visible = visible;
             if (visible === "true") {
-              //AC_HERSTELLER
-              if (name.includes("_")) {
+              if (name.includes("_")) { //AC_HERSTELLER
                 name = name.substr(3);
               }
-
-              UTIL.logger(
-                dialogname +
-                ": customize(): j: " +
-                j +
-                "; ausgabe: feld.name: " +
-                name +
-                ": visible: " +
-                visible +
-                "; minWidth: " +
-                minWidth
-              );
+              UTIL.logger(dialogname + ": customize(): j: " + j + "; ausgabe: feld.name: " +
+                name + ": visible: " + visible + "; minWidth: " + minWidth);
 
               //config.default.data["table1"].columns[j].minWidth
               $("#" + name + "width").val(minWidth);
 
               config.default.data["table1"].columns[j].minWidth = minWidth;
-              /*
-              if (name.toLowerCase() === "mandant") {
-                $("#" + "mandantwidth").val(
-                  config.default.data["table1"].columns[i].minWidth
-                );
-              } else if (name.toLowerCase() === "hersteller") {
-                $("#" + "herstellerwidth").val(
-                  config.default.data["table1"].columns[i].minWidth
-                );
-              } else if (name.toLowerCase() === "teilenummer") {
-                $("#" + "teilenummerwidth").val(
-                  config.default.data["table1"].columns[i].minWidth
-                );
-              } else if (name.toLowerCase() === "herstellerteilenummer") {
-                //HERSTELLERTEILENUMMER
-                $("#" + "herstellerteilenummerwidth").val(
-                  config.default.data["table1"].columns[i].minWidth
-                );
-              }
-              */
             }
           }
         }
@@ -237,90 +144,65 @@ $(document).ready(function () {
   $(document).bind("keydown", function (e) {
     key = e.which;
     ctrl = e.ctrlKey;
-    //console.log('keydown: key: ' + key + "; ctrl: " + ctrl);
     //e.preventDefault();
 
-    if (key === 17) {
-      //Ctrl;
+    if (key === 17) { //Ctrl;      
       console.log("ctrl blocked");
       return false;
     }
-
-    if (key === 17 && ctrl) {
-      //Ctrl;  ctrl+F4
+    if (key === 17 && ctrl) { //Ctrl;  ctrl+F4
       console.log("ctrl blocked");
       return false;
     }
-
-    if (key === 38 && table) {
-      //Key up
+    if (key === 38 && table) { //Key up      
       var selindex = table.rows(".selected").indexes()[0];
-      //UTIL.logger(dialogname + ': selindex: ' + selindex);
       var pagelength = config.default.data["table1"].pageLength;
       var newindex = (selindex % pagelength) - 1;
-      //UTIL.logger(dialogname + ': newindex: ' + newindex + '; pagelength: ' + pagelength);
       if (newindex < 0) {
         newindex = pagelength - 1;
       }
       table.row(":eq(" + newindex + ")", { page: "current" }).select();
       return false;
     }
-
-    if (key === 40) {
-      //Key down
+    if (key === 40 && table) { //Key down      
       var selindex = table.rows(".selected").indexes()[0];
-      //UTIL.logger(dialogname + ': selindex: ' + selindex);
       var pagelength = config.default.data["table1"].pageLength;
       var newindex = (selindex % pagelength) + 1;
-      //UTIL.logger(dialogname + ': newindex: ' + newindex + '; pagelength: ' + pagelength);
       if (newindex > pagelength - 1) {
         newindex = 0;
       }
-
       table.row(":eq(" + newindex + ")", { page: "current" }).select();
       return false;
     }
-
-    if (key === 115 && ctrl) {
-      //ctrl+F4
+    if (key === 115 && ctrl) { //ctrl+F4      
       console.log("ctrl+F4 blocked");
       return false;
     }
-
-    if (key === 115) {
-      //F4
+    if (key === 115) { //F4      
       console.log("F4 blocked");
       return false;
     }
-
-    if (key === 116 && !ctrl) {
-      //F5
+    if (key === 116 && !ctrl) { //F5      
       console.log("F5 blocked");
       return false;
     }
-
-    if (key === 116 && ctrl) {
-      //ctrl+F5
+    if (key === 116 && ctrl) { //ctrl+F5      
       console.log("F5/Ctrl+F5 blocked");
       return false;
     }
-
-    if (key === 82 && ctrl) {
-      //ctrl+r
+    if (key === 82 && ctrl) { //ctrl+r      
       console.log("ctrl+r blocked");
       return false;
     }
-
-    if (key === 9 && e.ctrl) {
-      //ctrl+TAB
+    if (key === 9 && e.ctrl) { //ctrl+TAB      
       console.log("ctrl+TAB blocked");
       return false;
     }
-
-    //    if (key === 123) { //F12
-    //      console.log('F5/Ctrl+F5 116 blocked');
-    //      return false;
-    //    }
+    /*    if (key === 123) { //F12
+          console.log('F5/Ctrl+F5 116 blocked');
+          return false;
+        }
+    */
   });
 
   //Window click event
@@ -336,6 +218,11 @@ $(document).ready(function () {
     }
   });
 
+  //Window doubleclick event
+  $(window).on("dblclick", function (e) {
+    //e.preventDefault();
+    UTIL.logger(dialogname + ": ondblclick(): e.target.id: " + e.target.id);
+  });
 
   //Window close Event
   $(window).on("beforeunload", function () {
@@ -357,23 +244,14 @@ $(document).ready(function () {
         newValue; new value of property after change;  url; url of page that made the change
         storageArea; localStorage or sessionStorage,
         }     
-        */
+    */
     var key = storageEvent.key;
     var newvalue = storageEvent.newValue;
     var oldvalue = storageEvent.oldValue;
     var url = storageEvent.url;
     var eintrag = localStorage.getItem(key);
-    UTIL.logger(
-      dialogname +
-      ": onStorageEvent(): eintrag für key: " +
-      key +
-      "; oldvalue: " +
-      oldvalue +
-      "; newvalue: " +
-      newvalue +
-      "; eintrag: " +
-      eintrag
-    );
+    UTIL.logger(dialogname + ": onStorageEvent(): eintrag für key: " + key + "; oldvalue: " +
+      oldvalue + "; newvalue: " + newvalue + "; eintrag: " + eintrag);
     //eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
 
     /* webrw.html closed
@@ -387,68 +265,36 @@ $(document).ready(function () {
         closed = true;
         localStorage.removeItem(key);
         window.close();
-        UTIL.logger(
-          dialogname +
-          ": onStorageEvent(): Dialog: " +
-          key +
-          " gelöscht und closed"
-        );
+        UTIL.logger(dialogname + ": onStorageEvent(): Dialog: " + key + " gelöscht und closed");
       } else if (newvalue === "folge") {
         //Folgedialog starten
         aktdialog = key;
         UTIL.logger(dialogname + ": onStorageEvent(): folgedialog: " + key);
         var left = 100 + Math.floor(Math.random() * 100 + 1) * 5;
         var top = 100 + Math.floor(Math.random() * 100 + 1) * 5;
-        //var winProps = 'height=300,width=400,resizable=no,'
-        //  + 'status=no,toolbar=no,location=no,menubar=no,' + 'titlebar=no,scrollbars=no,' + 'left=' + left + ',top=' + top;
+        //var winProps = 'height=300,width=400,resizable=no, status=no,toolbar=no,location=no,menubar=no,' + 'titlebar=no,scrollbars=no,' + 'left=' + left + ',top=' + top;
         var _width = localStorage.getItem(aktdialog + ".width");
         _width = _width - _width / 120;
         var _height = localStorage.getItem(aktdialog + ".height");
         _height = _height - _height / 120;
-        UTIL.logger(
-          dialogname +
-          ": onStorageEvent(): aktdialog: " +
-          aktdialog +
-          ";_width: " +
-          _width +
-          "; _height: " +
-          _height
-        );
+        UTIL.logger(dialogname + ": onStorageEvent(): aktdialog: " + aktdialog + ";_width: " + _width + "; _height: " + _height);
         if (_width && _height) {
-          var winProps =
-            "height=" +
-            _height +
-            ",width=" +
-            _width +
-            "left=" +
-            left +
-            ",top=" +
-            top;
+          var winProps = "height=" + _height + ",width=" + _width + "left=" + left + ",top=" + top;
         } else {
           var winProps = "height=500,width=600,left=" + left + ",top=" + top;
         }
 
-        var newWin = window.open(
-          "../" + aktdialog + "/" + aktdialog + ".html",
-          "_blank"
-        );
-        UTIL.logger(
-          dialogname + ": onStorageEvent: dialog: " + newWin.name + " gestartet"
-        );
+        var newWin = window.open("../" + aktdialog + "/" + aktdialog + ".html", "_blank");
+        UTIL.logger(dialogname + ": onStorageEvent: dialog: " + newWin.name + " gestartet");
         localStorage.setItem(aktdialog, "focus");
-        UTIL.logger(
-          dialogname +
-          ": onStorageEvent: aktdialog: " +
-          aktdialog +
-          " auf focus gesetzt"
-        );
+        UTIL.logger(dialogname + ": onStorageEvent: aktdialog: " + aktdialog + " auf focus gesetzt");
       }
     }
   }
 
   window.addEventListener("storage", onStorageEvent, false);
-  //Customisationdialog
 
+  //Customisationdialog
   $("#custom").dialog({
     title: "Customize",
     autoOpen: false,
@@ -466,16 +312,12 @@ $(document).ready(function () {
       for (let i = 0; i < config.default.data.listboxen.length; i++) {
         if (config.default.data.listboxen[i].name === lbname) {
           //"table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager WHERE wert is not null order by 2"
-          url +=
-            config.default.data.listboxen[i].typ +
-            "&table=" +
-            config.default.data.listboxen[i].table;
+          url += config.default.data.listboxen[i].typ +
+            "&table=" + config.default.data.listboxen[i].table;
           if (config.default.data.listboxen[i].constkey) {
             url += "&constkey=" + config.default.data.listboxen[i].constkey;
           }
-          UTIL.logger(
-            dialogname + ": XXX initLb(): lbname: " + lbname + "; url: " + url
-          );
+          UTIL.logger(dialogname + ": XXX initLb(): lbname: " + lbname + "; url: " + url);
 
           // Using the core $.ajax() method
           $.ajax({
@@ -485,18 +327,9 @@ $(document).ready(function () {
           })
             .done(function (data) {
               //data: [{"id":"0","name":"0"},{"id":"1","name":"1"}]
-              $("#" + lbname).append(
-                $("<option></option>")
-                  .val("0")
-                  .html("Alle")
-              );
+              $("#" + lbname).append($("<option></option>").val("0").html("Alle"));
               $.each(data, function (index, value) {
-                //UTIL.logger(dialogname + ': initLbs(): id: ' + value.id + '; name: ' + value.name);
-                $("#" + lbname).append(
-                  $("<option></option>")
-                    .val(value.id)
-                    .html(value.name)
-                );
+                $("#" + lbname).append($("<option></option>").val(value.id).html(value.name));
               });
 
               $("#" + lbname).show();
@@ -523,46 +356,26 @@ $(document).ready(function () {
     for (let i = 0; i < config.default.data.listboxen.length; i++) {
       if (config.default.data.listboxen[i].name === lbname) {
         dependend = config.default.data.listboxen[i].dependend;
-        //UTIL.logger(dialogname + ': changelb(): lbname: ' + lbname + '; value: ' + value);
         //Dependend Listbox
         var url = globalconfig.bckendurl + "Listbox?typ=";
         for (let j = 0; j < config.default.data.listboxen.length; j++) {
           if (config.default.data.listboxen[j].name === dependend) {
-            //UTIL.logger(dialogname + ': changelb(): dependend lbname: ' + dependend);
             //url: Listbox?typ=depends&table=SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager
             //&constkey=mandantoid&constkeyval=0
             if (value != 0) {
-              url +=
-                config.default.data.listboxen[j].typ +
-                "&table=" +
-                config.default.data.listboxen[j].table +
-                "&constkey=" +
-                config.default.data.listboxen[j].constkey +
-                "&constkeyval='" +
-                value +
-                "'";
+              url += config.default.data.listboxen[j].typ +
+                "&table=" + config.default.data.listboxen[j].table +
+                "&constkey=" + config.default.data.listboxen[j].constkey +
+                "&constkeyval='" + value + "'";
             } else {
-              url +=
-                config.default.data.listboxen[j].typ +
-                "&table=" +
-                config.default.data.listboxen[j].table;
+              url += config.default.data.listboxen[j].typ +
+                "&table=" + config.default.data.listboxen[j].table;
             }
             UTIL.logger(dialogname + ": changelb(): url: " + url);
             $.getJSON(url, function (data) {
-              //UTIL.logger(dialogname + ': initLbs(): data.name: ' + data[0].name);
-              $("#" + dependend)
-                .empty()
-                .append(
-                  $("<option></option>")
-                    .val("0")
-                    .html("Alle")
-                );
+              $("#" + dependend).empty().append($("<option></option>").val("0").html("Alle"));
               $.each(data, function (index, value) {
-                $("#" + dependend).append(
-                  $("<option></option>")
-                    .val(value.id)
-                    .html(value.name)
-                );
+                $("#" + dependend).append($("<option></option>").val(value.id).html(value.name));
               });
             });
             break;
@@ -572,11 +385,11 @@ $(document).ready(function () {
       }
     }
   };
+
   //Listboxen init.
   function initLbs() {
     $("#eingabediv1 select").each(function (lb) {
       var lbname = $(this).attr("id");
-      //UTIL.logger(dialogname + ": initLbs(): lb: " + lb + "; lbname: " + lbname);
       if (lbname !== undefined) {
         initLb(lbname);
       }
@@ -586,20 +399,11 @@ $(document).ready(function () {
 
   //Click auf Tabellenrow (aufgerufen: .on('click', 'tr')
   rowclickaction = function rowClickAction(action, doubleclick, rowdata) {
-    UTIL.logger(
-      dialogname +
-      ": rowClickAction(): action: " +
-      action +
-      "/" +
-      (doubleclick === true ? "doubleclick" : "singleclick") +
-      "; LE-Nr.: " +
-      rowdata[5]
-    );
+    UTIL.logger(dialogname + ": rowClickAction(): action: " + action + "/" +
+      (doubleclick === true ? "doubleclick" : "singleclick") + "; LE-Nr.: " + rowdata[5]);
     //Doppelclick: Detaildialog starten
     if (action === "select" && doubleclick) {
-      //UTIL.logger(dialogname + ': rowclickaction(): Doubleclick auf Zeile');
     } else if (action === "select" && !doubleclick) {
-      //UTIL.logger(dialogname + ': rowclickaction(): Singleclick auf Zeile');
       //Toolbarbuttons enablen
       $("#detail").attr("disabled", false);
       $("#detail").css("background-color", "white");
@@ -614,8 +418,6 @@ $(document).ready(function () {
       $("#lotypdet").val(rowdata[29]);
       $("#lagerortdet").val(rowdata[38]);
       $("#zoneaktuelldet").val(rowdata[31]);
-      //UTIL.logger(dialogname + ": transportdet: rowdata[34]: " + rowdata[34]);
-      //UTIL.logger(dialogname + ": transportdet: rowdata[35]: " + rowdata[35]);
       $("#zoneavisiertdet").val(rowdata[35]);
       //Bestände
       $("#total").val(rowdata[10]);
