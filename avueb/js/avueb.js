@@ -207,11 +207,8 @@ $(document).ready(function () {
       console.log('ctrl+TAB blocked')
       return false
     }
-  /*    if (key === 123) { //F12
-  			console.log('F5/Ctrl+F5 116 blocked')
-  			return false
-  		}
-  */
+    // if (key === 123) { //F12 console.log('F5/Ctrl+F5 116 blocked') return false }
+
   })
 
   // Window click event
@@ -249,9 +246,9 @@ $(document).ready(function () {
   // Eventlistener: Eintrag in localstorage
   function onStorageEvent (storageEvent) {
     /* StorageEvent {
-    		key; name of the property set, changed etc.; oldValue; old value of property before change
-    		newValue; new value of property after change;  url; url of page that made the change
-    		storageArea; localStorage or sessionStorage,
+    key; name of the property set, changed etc.; oldValue; old value of property before change
+    newValue; new value of property after change;  url; url of page that made the change
+    storageArea; localStorage or sessionStorage,
     		}     
     */
     var key = storageEvent.key
@@ -669,18 +666,13 @@ $(document).ready(function () {
   detail = function detail (aktdialog) {
     // Eintrag localStorage
     var eingetragen = localStorage.getItem(aktdialog) ? true : false
-    UTIL.logger(
-      dialogname +
-      ': detail(): dialog: ' +
-      aktdialog +
-      ' eingetragen: ' +
-      eingetragen
-    )
+    UTIL.logger(dialogname + ': detail(): dialog: ' + aktdialog + ' eingetragen: ' + eingetragen)
     if (eingetragen) {
       localStorage.removeItem(aktdialog)
     }
     localStorage.setItem(aktdialog, 'folge')
   }
+
   // tabelle aktualisieren
   aktualisieren = function aktualisieren () {
     showtable('table1')
@@ -697,7 +689,6 @@ $(document).ready(function () {
       if (_id.indexOf('cust') >= 0) {
         _id = _id.substring(0, _id.indexOf('cust'))
       }
-      // UTIL.logger(dialogname + ": speicherncust(): Eingabe: chekbox id: " + _id + ": chekbox value: " + value.checked)
       if (!value.checked) {
         // Selkrit remove
         _display = 'none'
@@ -712,10 +703,7 @@ $(document).ready(function () {
     })
 
     // In localStorage speichern
-    localStorage.setItem(
-      dialogname + '.eingabe',
-      JSON.stringify(config.default.data.inputfelder)
-    )
+    localStorage.setItem(dialogname + '.eingabe', JSON.stringify(config.default.data.inputfelder))
     _display = 'none'
 
     // Ausgabefelder Checkboxen
@@ -731,14 +719,7 @@ $(document).ready(function () {
       }
       config.default.data.table1.columns[index].visible = _display
 
-      UTIL.logger(
-        dialogname +
-        ': speicherncust(): ' +
-        ' id: ' +
-        _id +
-        '; visible: ' +
-        _display
-      )
+      UTIL.logger(dialogname + ': speicherncust(): ' + ' id: ' + _id + '; visible: ' + _display)
     })
 
     // Ausgabefelder minWidth
@@ -746,29 +727,17 @@ $(document).ready(function () {
       let _id = value.id
       config.default.data.table1.columns[index].minWidth = $(this).val()
 
-      UTIL.logger(
-        dialogname +
-        ': speicherncust(): ' +
-        ' id: ' +
-        _id +
-        '; minWidth: ' +
-        $(this).val()
-      )
+      UTIL.logger(dialogname + ': speicherncust(): ' + ' id: ' + _id + '; minWidth: ' + $(this).val())
     })
 
     // In localStorage speichern
-    localStorage.setItem(
-      dialogname + '.ausgabe',
-      JSON.stringify(config.default.data[tabelle].columns)
-    )
+    localStorage.setItem(dialogname + '.ausgabe', JSON.stringify(config.default.data[tabelle].columns))
     $('#custom').css('display', 'none')
     $('#custom').dialog('close')
   }
 
   resetcust = function resetcust (block, param) {
-    UTIL.logger(
-      dialogname + ': resetcust(): block: ' + block + '; param: ' + param
-    )
+    UTIL.logger(dialogname + ': resetcust(): block: ' + block + '; param: ' + param)
     if (block === 'eingabe') {
       // Alle Checkboxen checked
       $('.custinput').each(function (index, value) {
@@ -785,16 +754,13 @@ $(document).ready(function () {
       // Alle Checkboxen checked
       $('.custausgabe').each(function (index, value) {
         let _id = value.id
-        // UTIL.logger(dialogname + ': resetausg(): _id: ' + _id)
-        // if (_id.indexOf("cust") >= 0) {
         if (param === 'reset') {
           $('#' + _id).prop('checked', true)
           $('#' + _id + 'width').val(50)
         } else if (param === 'clear') {
           $('#' + _id).prop('checked', false)
         }
-      // }
       })
     }
   }
-}); // end ready
+}) // end ready
