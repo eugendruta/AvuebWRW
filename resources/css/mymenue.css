@@ -7,6 +7,10 @@
     background: lightgray;
 }
 
+.myitem:hover {
+    background: lightgrey;
+}
+
 .mysubmenue {
     background: lightskyblue;
 }
@@ -31,7 +35,7 @@ ul li a {
     display: block;
 }
 
-ul li:hover {
+ul li:hover input:hover {
     background: lightskyblue;
 }
 
