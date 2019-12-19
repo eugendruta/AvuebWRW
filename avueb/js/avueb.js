@@ -12,9 +12,14 @@ $(document).ready(function () {
       if (data[m].children != undefined) {
         _menue += "<ul>"
         for (var k = 0; k < data[m].children.length; k++) {
-          _menue += "<li class='myitem'>" + "<input value='" + data[m].children[k].label +
-            "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].label + "\")'>" +
-            "   </li>"
+          if (data[m].children[k].children != undefined) {
+            _menue += "<li class='myitem'>" + data[m].children[k].label + "</li>"
+          } else {
+            _menue += "<li class='myitem'>" +
+              "<input value='" + data[m].children[k].label +
+              "' type='submit' onclick='naviclickdia(\"" + data[m].children[k].label + "\")'>" +
+              "   </li>"
+          }
 
           UTIL.logger(dialogname + ": ready(): data[" + m + "].children[" + k + "].label: " + data[m].children[k].label);
           if (data[m].children[k].children != undefined) {
