@@ -27,7 +27,7 @@ $(document).ready(function () {
               UTIL.logger(dialogname + ': ready(): data[' + m + '].children[' + k + '].children[' + j + '].label: ' +
                 data[m].children[k].children[j].label)
               _menue += "<li class='myitem'>" +
-                "<input value='  " + data[m].children[k].children[j].label +
+                "<input value='&nbsp;&nbsp;" + data[m].children[k].children[j].label +
                 '\' type=\'submit\' onclick=\'naviclickdia("' + data[m].children[k].children[j].label + '")\'>' +
                 '   </li>'
             }
@@ -40,7 +40,6 @@ $(document).ready(function () {
     _menue += '</ul>'
     $('#menue').append(_menue)
   }
-
   createMenue(7)
 
   $('.myitem').click(function () {
@@ -78,7 +77,7 @@ $(document).ready(function () {
   $('#navigator').hide()
   $('#navmini').val('>')
 
-  customize = function customize (param) {
+  customize = function customize(param) {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
@@ -222,6 +221,13 @@ $(document).ready(function () {
       localStorage.setItem(dialogname, 'focus')
       UTIL.logger(dialogname + ': onclick() Dialog: ' + dialogname + ' im localStorage eingetragen')
     }
+
+    //Dialog starten
+    /*
+    if (e.target.id) {
+      naviclickdia(e.target.id)
+    }
+    */
   })
 
   // Window doubleclick event
@@ -244,7 +250,7 @@ $(document).ready(function () {
   })
 
   // Eventlistener: Eintrag in localstorage
-  function onStorageEvent (storageEvent) {
+  function onStorageEvent(storageEvent) {
     /* StorageEvent {
     key; name of the property set, changed etc.; oldValue; old value of property before change
     newValue; new value of property after change;  url; url of page that made the change
@@ -258,7 +264,7 @@ $(document).ready(function () {
     var eintrag = localStorage.getItem(key)
     UTIL.logger(dialogname + ': onStorageEvent(): eintrag für key: ' + key + '; oldvalue: ' +
       oldvalue + '; newvalue: ' + newvalue + '; eintrag: ' + eintrag)
-      // eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
+    // eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
 
     /* webrw.html closed
      * bsueb: onStorageEvent(): eintrag für key: bsueb; oldvalue: focus; newvalue: null
@@ -311,7 +317,7 @@ $(document).ready(function () {
   })
 
   // Init. Listbox
-  function initLb (lbname) {
+  function initLb(lbname) {
     if ($('#' + lbname).val() === null) {
       // "listboxen": [{"name": "lotyplb", "typ": "appKonst", "table": "V_AC_FLSLAGERORTTYP"} oder SELECT Stmt.
       var url = globalconfig.bckendurl + 'Listbox?typ='
@@ -319,7 +325,7 @@ $(document).ready(function () {
         if (config.default.data.listboxen[i].name === lbname) {
           // "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager WHERE wert is not null order by 2"
           url += config.default.data.listboxen[i].typ +
-          '&table=' + config.default.data.listboxen[i].table
+            '&table=' + config.default.data.listboxen[i].table
           if (config.default.data.listboxen[i].constkey) {
             url += '&constkey=' + config.default.data.listboxen[i].constkey
           }
@@ -354,7 +360,7 @@ $(document).ready(function () {
   }
 
   // Listbox changed
-  changelb = function changelb (lbname, value) {
+  changelb = function changelb(lbname, value) {
     /* {"name": "hostlagerlb", "typ": "depends", 
     	* "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager where mandantoid = '",
     	"constkey": "MAN-efa", "dbcolumn": "HOSTLAGER"},      
@@ -375,7 +381,7 @@ $(document).ready(function () {
                 "&constkeyval='" + value + "'"
             } else {
               url += config.default.data.listboxen[j].typ +
-              '&table=' + config.default.data.listboxen[j].table
+                '&table=' + config.default.data.listboxen[j].table
             }
             UTIL.logger(dialogname + ': changelb(): url: ' + url)
             $.getJSON(url, function (data) {
@@ -393,7 +399,7 @@ $(document).ready(function () {
   }
 
   // Listboxen init.
-  function initLbs () {
+  function initLbs() {
     $('#eingabediv1 select').each(function (lb) {
       var lbname = $(this).attr('id')
       if (lbname !== undefined) {
@@ -404,11 +410,11 @@ $(document).ready(function () {
   initLbs()
 
   // Click auf Tabellenrow (aufgerufen: .on('click', 'tr')
-  rowclickaction = function rowClickAction (action, doubleclick, rowdata) {
+  rowclickaction = function rowClickAction(action, doubleclick, rowdata) {
     UTIL.logger(dialogname + ': rowClickAction(): action: ' + action + '/' +
       (doubleclick === true ? 'doubleclick' : 'singleclick') + '; LE-Nr.: ' + rowdata[5])
     // Doppelclick: Detaildialog starten
-    if (action === 'select' && doubleclick) {} else if (action === 'select' && !doubleclick) {
+    if (action === 'select' && doubleclick) { } else if (action === 'select' && !doubleclick) {
       // Toolbarbuttons enablen
       $('#detail').attr('disabled', false)
       $('#detail').css('background-color', 'white')
@@ -452,7 +458,7 @@ $(document).ready(function () {
   }
 
   // Tabelle anzeigen
-  showtable = function showtable (tabelle) {
+  showtable = function showtable(tabelle) {
     var lastclicktime = 0
     var doubleclick = false
     var delay = 200
@@ -489,13 +495,13 @@ $(document).ready(function () {
                 value === '0' ||
                 value === 0 ||
                 value === ''
-              ) {} else {
+              ) { } else {
                 klausel += field + "='" + value + "' AND "
                 // Eingabe speichern
                 config.default.data.inputfelder[i].eingabe = value
-              // UTIL.logger(dialogname + ': showtable(): eingaben: '
-              // + config.default.data.inputfelder[i].eingabe + '; visible: '
-              // + config.default.data.inputfelder[i].visible)
+                // UTIL.logger(dialogname + ': showtable(): eingaben: '
+                // + config.default.data.inputfelder[i].eingabe + '; visible: '
+                // + config.default.data.inputfelder[i].visible)
               }
               break
             }
@@ -522,7 +528,7 @@ $(document).ready(function () {
                 value === '0' ||
                 value === 0 ||
                 value === ''
-              ) {} else {
+              ) { } else {
                 if (config.default.data.listboxen[i].displed != 'none') {
                   klausel += field + "='" + value + "' AND "
                 }
@@ -621,7 +627,7 @@ $(document).ready(function () {
   }
 
   // Summenzeile berechnen
-  function calculateSummary (ui) {
+  function calculateSummary(ui) {
     var _summenzeile = Array(ui.dataModel.data[0].length).fill(0)
     for (var i = 0; i < ui.dataModel.data.length; i++) {
       for (var j = 0; j < ui.dataModel.data[i].length; j++) {
@@ -663,7 +669,7 @@ $(document).ready(function () {
   }
 
   // Folgedialog starten
-  detail = function detail (aktdialog) {
+  detail = function detail(aktdialog) {
     // Eintrag localStorage
     var eingetragen = localStorage.getItem(aktdialog) ? true : false
     UTIL.logger(dialogname + ': detail(): dialog: ' + aktdialog + ' eingetragen: ' + eingetragen)
@@ -674,12 +680,12 @@ $(document).ready(function () {
   }
 
   // tabelle aktualisieren
-  aktualisieren = function aktualisieren () {
+  aktualisieren = function aktualisieren() {
     showtable('table1')
   }
 
   // Customising speichern
-  speicherncust = function speicherncust (tabelle) {
+  speicherncust = function speicherncust(tabelle) {
     UTIL.logger(dialogname + ': speicherncust(): tabelle: ' + tabelle)
 
     let _display = 'none'
@@ -736,7 +742,7 @@ $(document).ready(function () {
     $('#custom').dialog('close')
   }
 
-  resetcust = function resetcust (block, param) {
+  resetcust = function resetcust(block, param) {
     UTIL.logger(dialogname + ': resetcust(): block: ' + block + '; param: ' + param)
     if (block === 'eingabe') {
       // Alle Checkboxen checked
