@@ -1,0 +1,137 @@
+<!DOCTYPE html><html style="height: 100%;"><head><meta charset="UTF-8"><title>cssgridexample</title><link rel="manifest" href="manifest.json"><style>body {
+    padding-top: 1px;
+    background: #f5f7f8;
+}
+
+.grid-1x {
+    display: grid;
+    /* grid-template-columns: 150px 150px 150px 100px; */
+    grid-template-columns: 0.5fr 45fr 45fr 0.5fr;
+    /* grid-template-columns: 0.01fr 0.49fr 0.49fr 0.01fr; */
+    grid-template-rows: 20px;
+    grid-gap: 2px;
+}
+
+
+/* items */
+
+.grid-1x div {
+    color: white;
+    font-size: 15px;
+    padding: 2px;
+}
+
+
+/* specific item styles */
+
+.titelx {
+    background: yellowgreen;
+    grid-column: 1 / span 4;
+}
+
+.menuex {
+    background: gray;
+    grid-column: 1 / span 4;
+}
+
+.eingabex {
+    background: lightgrey;
+    grid-column: 1 / span 4;
+}
+
+.leftx {
+    background: #33a8a5;
+    grid-column: 1 / span 1;
+}
+
+.contentx {
+    background: lightseagreen;
+    grid-column: 2 / span 2;
+}
+
+.rightx {
+    background: #6a478f;
+    grid-column: 4 / span 1;
+}
+
+.footerx {
+    background: #b03532;
+    grid-column: 1 / span 4;
+}
+
+
+/*
+    .item-6 {
+      background: #3d8bb1;
+    }
+    
+    .item-7 {
+      background: #e03f3f;
+    }
+    
+    .item-8 {
+      background: #59a627;
+    }
+    
+    .item-9 {
+      background: #4464a1;
+    }
+    
+    .item-10 {
+      background: #b03532;
+    }
+    
+    .item-11 {
+      background: #33a8a5;
+    }
+    
+    .item-12 {
+      background: #30997a;
+    }
+    */
+
+
+/* warn against lack of browser support */
+
+.nope {
+    display: block;
+    color: white;
+    background: orange;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+@supports (display: grid) {
+    .nope {
+        display: none;
+    }
+}
+
+</style><style>table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 2px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style></head><body><section class="grid-1x"><div class="menuex">Sysadmin Lagerverw Bestandsüberesicht Wareneingang</div><div class="titelx">AUUEB - Auftragsübersicht Toolbarbuttons</div><div class="eingabex">Mandant <select><option>EFS</option></select></div><div class="leftx">LangerText</div><div class="contentx"><table style="width: 600px;"><tr><th>Company</th><th>Contact</th><th>Country</th><th>Price</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td><td>Germany</td><td>12,
+34 $</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td><td>12,
+34 $</td></tr><tr><td>Ernst Handel</td><td>Roland Mendel</td><td>Austria</td><td>12,
+34 $</td></tr><tr><td>Island Trading</td><td>Helen Bennett</td><td>UK</td><td>12,
+34 $</td></tr><tr><td>Laughing Bacchus Winecellars</td><td>Yoshi Tannamuri</td><td>Canada</td><td>12,
+34 $</td></tr><tr><td>Magazzini Alimentari Riuniti</td><td>Giovanni Rovelli</td><td>Italy</td><td>12,
+34 $</td></tr></table></div><div class="rightx"></div><div class="footex">footer ------------------ </div></section></body></html
