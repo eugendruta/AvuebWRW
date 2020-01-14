@@ -211,24 +211,25 @@ $(document).ready(function () {
   })
 
   // Window click event
-  $(window).on('click', function (e) {
-    // e.preventDefault()
-    UTIL.logger(dialogname + ': onclick(): e.target.id: ' + e.target.id)
-    var status = localStorage.getItem(dialogname)
-    UTIL.logger(dialogname + ': onclick(): status: ' + status)
-    if (status === null) {
-      // Dialog noch nicht in localstorage eingetragen: eintragen.
-      localStorage.setItem(dialogname, 'focus')
-      UTIL.logger(dialogname + ': onclick() Dialog: ' + dialogname + ' im localStorage eingetragen')
-    }
-
-    //Dialog starten
-    /*
-    if (e.target.id) {
-      naviclickdia(e.target.id)
-    }
-    */
-  })
+  /*  
+    $(window).on('click', function (e) {
+      // e.preventDefault()
+      UTIL.logger(dialogname + ': onclick(): e.target.id: ' + e.target.id)
+      var status = localStorage.getItem(dialogname)
+      UTIL.logger(dialogname + ': onclick(): status: ' + status)
+      if (status === null) {
+        // Dialog noch nicht in localstorage eingetragen: eintragen.
+        localStorage.setItem(dialogname, 'focus')
+        UTIL.logger(dialogname + ': onclick() Dialog: ' + dialogname + ' im localStorage eingetragen')
+      }
+  
+      //Dialog starten      
+      //if (e.target.id) {
+        //naviclickdia(e.target.id)
+      //}
+      
+})
+  */
 
   // Window doubleclick event
   $(window).on('dblclick', function (e) {
@@ -255,7 +256,7 @@ $(document).ready(function () {
     key; name of the property set, changed etc.; oldValue; old value of property before change
     newValue; new value of property after change;  url; url of page that made the change
     storageArea; localStorage or sessionStorage,
-    		}     
+        }     
     */
     var key = storageEvent.key
     var newvalue = storageEvent.newValue
@@ -362,9 +363,9 @@ $(document).ready(function () {
   // Listbox changed
   changelb = function changelb(lbname, value) {
     /* {"name": "hostlagerlb", "typ": "depends", 
-    	* "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager where mandantoid = '",
-    	"constkey": "MAN-efa", "dbcolumn": "HOSTLAGER"},      
-    	*/
+      * "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager where mandantoid = '",
+      "constkey": "MAN-efa", "dbcolumn": "HOSTLAGER"},      
+      */
     for (let i = 0; i < config.default.data.listboxen.length; i++) {
       if (config.default.data.listboxen[i].name === lbname) {
         dependend = config.default.data.listboxen[i].dependend

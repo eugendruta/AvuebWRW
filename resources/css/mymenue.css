@@ -1,9 +1,9 @@
 .myitemf {
-    background: rgb(224, 222, 222);
+    /*background: rgb(224, 222, 222); */
     color: black;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     padding-top: 5px;
-    height: 20px;
+    height: 100px;
 }
 
 .myitemf:hover {
@@ -29,7 +29,6 @@ ul {
     list-style-type: none;
     z-index: 100;
     font-size: 16px;
-    height: 30px;
 }
 
 ul li {
