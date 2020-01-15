@@ -2,6 +2,24 @@ $(document).ready(function () {
   dialogname = 'avueb'
   UTIL.logger(dialogname + ': ready(): Start')
 
+  var togledone = true
+  var x
+  $(document).mousemove(function (e) {
+    if (e.pageX <= 0 && (x != e.pageX)) {
+      x = e.pageX
+      // console.log('x:' + e.pageX + ', y: ' + (e.pageY - window.pageYOffset))
+      $('.menuex').toggle()
+
+      if (togledone) {
+        togledone = false
+      } else {
+        togledone = true
+      }
+    } else {
+      x = e.pageX
+    }
+  })
+
   // Create Menue
   createMenue = function (anzMenuepkt) {
     var _menue = '<ul>'
@@ -232,10 +250,12 @@ $(document).ready(function () {
   */
 
   // Window doubleclick event
+  /*
   $(window).on('dblclick', function (e) {
     // e.preventDefault()
     UTIL.logger(dialogname + ': ondblclick(): e.target.id: ' + e.target.id)
   })
+  */
 
   // Window close Event
   $(window).on('beforeunload', function () {
@@ -621,6 +641,22 @@ $(document).ready(function () {
       }
 
       $('#ausgabediv1').pqGrid(config.obj)
+      /*
+      $('#ausgabediv1').pqGrid({
+        cellDblClick: function (event, ui) {
+          var rowData = ui.rowData
+          console.log('cellDblClick:  event: ' + event + '; rowData: ' + rowData)
+        }
+      })
+      */
+
+      $('#ausgabediv1').on('pqgridcelldblclick',
+        function (event, ui) {
+          var rowData = ui.rowData
+          console.log('cellDblClick:  event.target.title: ' + event.target.title
+            + '; rowIndx: ' + ui.rowIndx + '; rowData[5]: ' + rowData[5])
+        })
+
       $('#ausgabediv1').pqGrid('refreshDataAndView')
     })
 
