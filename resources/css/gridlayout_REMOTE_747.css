@@ -19,8 +19,8 @@
 
 /* specific item styles */
 
-.titelx {
-    background: rgb(169, 250, 249);
+.menuex {
+    background: lightgrey;
     grid-column: 1 / span 4;
 }
 
