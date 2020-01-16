@@ -19,13 +19,13 @@
 
 /* specific item styles */
 
-.titelx {
-    background: rgb(233, 250, 249);
+.menuex {
+    background: lightgrey;
     grid-column: 1 / span 4;
 }
 
-.menuex {
-    background: lightgrey;
+.titelx {
+    background: rgb(233, 250, 249);
     grid-column: 1 / span 4;
 }
 
