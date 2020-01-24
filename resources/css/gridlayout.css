@@ -20,12 +20,12 @@
 /* specific item styles */
 
 .menuex {
-    background: rgb(169, 250, 249);
+    background: rgb(211, 211, 209);
     grid-column: 1 / span 4;
 }
 
 .titelx {
-    background: rgb(233, 250, 249);
+    background: rgb(211, 211, 209); // rgb(238, 250, 233);
     grid-column: 1 / span 4;
 }
 
