@@ -608,15 +608,15 @@ $(document).ready(function () {
     }
 
     config.obj.selectChange = function (evt, ui) {
+      /* rows;  Type: Array
+        Array of objects { rowIndx: rowIndx, rowData: rowData }.
+      */
       var rows = ui.rows
       if (rows && rows.length) {
         for (var i = 0; i < rows.length; i++) {
-          UTIL.logger(
-            dialogname +
-            '; selectChange(): rows[' +
-            i +
-            '].rowData[5]: ' +
-            rows[i].rowData[5]
+          UTIL.logger(dialogname +
+            '; selectChange(): rows[' + rows[i].rowIndx + '].rowData[5]: ' + rows[i].rowData[5]
+            + '; rowIndx: ' + rows[i].rowIndx
           )
         }
       }
