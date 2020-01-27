@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  //globalconfig.LOGGER = false;
+
   dialogname = 'avueb'
   UTIL.logger(dialogname + ': ready(): Start')
 
@@ -84,17 +86,6 @@ $(document).ready(function () {
     var newWin = window.open(url, '_self')
   }
 
-  // Navigator
-  //navinit()
-  /*
-    // Navigator click event
-    $('#navigator').bind('tree.click', function (event) {
-      naviclick(event)
-    })
-  
-    $('#navigator').hide()
-    $('#navmini').val('>')
-  */
   customize = function customize(param) {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
@@ -110,11 +101,10 @@ $(document).ready(function () {
           let name = eingabefelder[i].name
           let visible = eingabefelder[i].visible
           let eingabe = eingabefelder[i].eingabe
+          // Selkrit remove(insert)
           if (visible === 'false') {
-            // Selkrit remove
             _display = 'none'
           } else {
-            // Selkrit insert
             _display = ''
           }
           $('#' + name + 'lbl').css('display', _display)
@@ -136,11 +126,10 @@ $(document).ready(function () {
           let name = ausgabefelder[j].name
           let visible = ausgabefelder[j].visible
           let minWidth = ausgabefelder[j].minWidth
+          // Selkrit remove(insert)
           if (visible === 'false') {
-            // Selkrit remove
             _display = 'none'
           } else {
-            // Selkrit insert
             _display = ''
           }
 
@@ -154,9 +143,7 @@ $(document).ready(function () {
               UTIL.logger(dialogname + ': customize(): j: ' + j + '; ausgabe: feld.name: ' +
                 name + ': visible: ' + visible + '; minWidth: ' + minWidth)
 
-              // config.default.data["table1"].columns[j].minWidth
               $('#' + name + 'width').val(minWidth)
-
               config.default.data['table1'].columns[j].minWidth = minWidth
             }
           }
@@ -228,35 +215,6 @@ $(document).ready(function () {
 
   })
 
-  // Window click event
-  /*  
-    $(window).on('click', function (e) {
-      // e.preventDefault()
-      UTIL.logger(dialogname + ': onclick(): e.target.id: ' + e.target.id)
-      var status = localStorage.getItem(dialogname)
-      UTIL.logger(dialogname + ': onclick(): status: ' + status)
-      if (status === null) {
-        // Dialog noch nicht in localstorage eingetragen: eintragen.
-        localStorage.setItem(dialogname, 'focus')
-        UTIL.logger(dialogname + ': onclick() Dialog: ' + dialogname + ' im localStorage eingetragen')
-      }
-  
-      //Dialog starten      
-      //if (e.target.id) {
-        //naviclickdia(e.target.id)
-      //}
-      
-})
-  */
-
-  // Window doubleclick event
-  /*
-  $(window).on('dblclick', function (e) {
-    // e.preventDefault()
-    UTIL.logger(dialogname + ': ondblclick(): e.target.id: ' + e.target.id)
-  })
-  */
-
   // Window close Event
   $(window).on('beforeunload', function () {
     localStorage.setItem(dialogname, 'closed')
@@ -265,8 +223,6 @@ $(document).ready(function () {
     localStorage.setItem(dialogname + '.height', $(window).height())
     // Dialogeintrag löschen
     localStorage.removeItem(dialogname)
-
-    // return "Wollen Sie tatsächlich den Dialog schließen?"
     return true
   })
 
@@ -286,7 +242,6 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': onStorageEvent(): eintrag für key: ' + key + '; oldvalue: ' +
       oldvalue + '; newvalue: ' + newvalue + '; eintrag: ' + eintrag)
     // eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
-
     /* webrw.html closed
      * bsueb: onStorageEvent(): eintrag für key: bsueb; oldvalue: focus; newvalue: null
      * eintrag: null
@@ -435,7 +390,10 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': rowClickAction(): action: ' + action + '/' +
       (doubleclick === true ? 'doubleclick' : 'singleclick') + '; LE-Nr.: ' + rowdata[5])
     // Doppelclick: Detaildialog starten
-    if (action === 'select' && doubleclick) { } else if (action === 'select' && !doubleclick) {
+    if (action === 'select' && doubleclick) {
+      alert('Doubleclick: Folgedialog aufrufen')
+    }
+    else if (action === 'select' && !doubleclick) {
       // Toolbarbuttons enablen
       $('#detail').attr('disabled', false)
       $('#detail').css('background-color', 'white')
@@ -641,24 +599,15 @@ $(document).ready(function () {
       }
 
       $('#ausgabediv1').pqGrid(config.obj)
-      /*
-      $('#ausgabediv1').pqGrid({
-        cellDblClick: function (event, ui) {
-          var rowData = ui.rowData
-          console.log('cellDblClick:  event: ' + event + '; rowData: ' + rowData)
-        }
-      })
-      */
-
       $('#ausgabediv1').on('pqgridcelldblclick',
         function (event, ui) {
           var rowData = ui.rowData
-          console.log('cellDblClick:  event.target.title: ' + event.target.title
+          UTIL.logger(dialogname + '; cellDblClick:  event.target.title: ' + event.target.title
             + '; rowIndx: ' + ui.rowIndx + '; rowData[5]: ' + rowData[5])
 
           // Aufruf Detaildialog AVDET
           var detdialog = 'AVDET: Auftragsdetail'
-          naviclickdia(detdialog)
+          naviclickdia(detdialog, rowData[5])
         }
       )
 
