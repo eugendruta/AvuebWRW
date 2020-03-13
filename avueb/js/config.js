@@ -40,86 +40,86 @@ var config = {
         'table': 'V_AC_FLSLAGERORTTYP',
         'dbcolumn': 'FLSLAGERORTTYP'
       },
-        {
-          'name': 'ezolb',
-          'typ': 'appKonst',
-          'table': 'V_DLG_BSUEB_ZONEAKTUELL',
-          'dbcolumn': 'ZONEAKTUELL'
-        },
-        {
-          'name': 'dispostatuslb',
-          'typ': 'Konst',
-          'table': 'V_UX_KONSTANTEN',
-          'constkey': 'LE.DispoStatus',
-          'dbcolumn': 'DISPOSTATUS'
-        },
-        {
-          'name': 'mandantlb',
-          'typ': 'appKonst',
-          'table': 'V_AC_MANDANT',
-          'dbcolumn': 'MANDANT',
-          'dependend': 'hostlagerlb'
-        },
-        {
-          'name': 'lagerortlb',
-          'typ': 'sqlstm',
-          'table': 'SELECT OID as id, NAME FROM V_DLG_BSUEB_LAGERORT WHERE name is not null order by 2',
-          'dbcolumn': 'nd_lagerortoid'
-        },
-        {
-          'name': 'hostlagerlb',
-          'typ': 'depends',
-          'table': 'SELECT wert, anzeige_text, mandantoid FROM V_DLG_BSUEB_HOSTLAGER',
-          'constkey': 'mandantoid',
-          'dbcolumn': 'HOSTLAGER'
-        },
-        {
-          'name': 'lagerbereichlb',
-          'typ': 'appKonst',
-          'table': 'V_AC_PVLAGERZONE',
-          'dbcolumn': 'ND_LAGERBEREICHOID'
-        },
-        {
-          'name': 'transportlb',
-          'typ': 'Konst',
-          'table': 'V_UX_KONSTANTEN',
-          'constkey': 'GuiBoolean',
-          'dbcolumn': 'TRANSPORT'
-        },
-        {
-          'name': 'herstellerlb',
-          'typ': 'appKonst',
-          'table': 'V_AC_HERSTELLER',
-          'dbcolumn': 'HERSTELLER'
-        },
-        { 'name': 'lhmtyplb', 'typ': 'appKonst', 'table': 'V_AC_LHMTYP', 'dbcolumn': 'LHMTYP' },
-        {
-          'name': 'inventurlb',
-          'typ': 'Konst',
-          'table': 'V_UX_KONSTANTEN',
-          'constkey': 'GuiBoolean',
-          'dbcolumn': 'INVENTUR'
-        },
-        {
-          'name': 'ezoavisiertlb',
-          'typ': 'appKonst',
-          'table': 'V_AC_EINLAGERZONE',
-          'dbcolumn': 'ZONEAVISIERT'
-        },
-        {
-          'name': 'qsstatuslb',
-          'typ': 'Konst',
-          'table': 'V_UX_KONSTANTEN',
-          'constkey': 'LE.QsStatus',
-          'dbcolumn': 'QSSTATUS'
-        },
-        {
-          'name': 'intsperrelb',
-          'typ': 'Konst',
-          'table': 'V_UX_KONSTANTEN',
-          'constkey': 'LE.Sperre',
-          'dbcolumn': 'INTERNESPERRE'
-        }
+      {
+        'name': 'ezolb',
+        'typ': 'appKonst',
+        'table': 'V_DLG_BSUEB_ZONEAKTUELL',
+        'dbcolumn': 'ZONEAKTUELL'
+      },
+      {
+        'name': 'dispostatuslb',
+        'typ': 'Konst',
+        'table': 'V_UX_KONSTANTEN',
+        'constkey': 'LE.DispoStatus',
+        'dbcolumn': 'DISPOSTATUS'
+      },
+      {
+        'name': 'mandantlb',
+        'typ': 'appKonst',
+        'table': 'V_AC_MANDANT',
+        'dbcolumn': 'MANDANT',
+        'dependend': 'hostlagerlb'
+      },
+      {
+        'name': 'lagerortlb',
+        'typ': 'sqlstm',
+        'table': 'SELECT OID as id, NAME FROM V_DLG_BSUEB_LAGERORT WHERE name is not null order by 2',
+        'dbcolumn': 'nd_lagerortoid'
+      },
+      {
+        'name': 'hostlagerlb',
+        'typ': 'depends',
+        'table': 'SELECT wert, anzeige_text, mandantoid FROM V_DLG_BSUEB_HOSTLAGER',
+        'constkey': 'mandantoid',
+        'dbcolumn': 'HOSTLAGER'
+      },
+      {
+        'name': 'lagerbereichlb',
+        'typ': 'appKonst',
+        'table': 'V_AC_PVLAGERZONE',
+        'dbcolumn': 'ND_LAGERBEREICHOID'
+      },
+      {
+        'name': 'transportlb',
+        'typ': 'Konst',
+        'table': 'V_UX_KONSTANTEN',
+        'constkey': 'GuiBoolean',
+        'dbcolumn': 'TRANSPORT'
+      },
+      {
+        'name': 'herstellerlb',
+        'typ': 'appKonst',
+        'table': 'V_AC_HERSTELLER',
+        'dbcolumn': 'HERSTELLER'
+      },
+      { 'name': 'lhmtyplb', 'typ': 'appKonst', 'table': 'V_AC_LHMTYP', 'dbcolumn': 'LHMTYP' },
+      {
+        'name': 'inventurlb',
+        'typ': 'Konst',
+        'table': 'V_UX_KONSTANTEN',
+        'constkey': 'GuiBoolean',
+        'dbcolumn': 'INVENTUR'
+      },
+      {
+        'name': 'ezoavisiertlb',
+        'typ': 'appKonst',
+        'table': 'V_AC_EINLAGERZONE',
+        'dbcolumn': 'ZONEAVISIERT'
+      },
+      {
+        'name': 'qsstatuslb',
+        'typ': 'Konst',
+        'table': 'V_UX_KONSTANTEN',
+        'constkey': 'LE.QsStatus',
+        'dbcolumn': 'QSSTATUS'
+      },
+      {
+        'name': 'intsperrelb',
+        'typ': 'Konst',
+        'table': 'V_UX_KONSTANTEN',
+        'constkey': 'LE.Sperre',
+        'dbcolumn': 'INTERNESPERRE'
+      }
       ],
       'table1': {
         'name': 'table_avueb',
@@ -128,7 +128,7 @@ var config = {
         'anzcolumns': '57',
         'pageLength': 5,
         'columns': [
-          { 'name': 'AC_MANDANT', 'typdata': 'AppConst', 'visible': 'true', summe: '', minWidth: 40, pq_cellcls: { 'name': 'green'} },
+          { 'name': 'AC_MANDANT', 'typdata': 'AppConst', 'visible': 'true', summe: '', minWidth: 40, pq_cellcls: { 'name': 'green' } },
           { 'name': 'AC_HERSTELLER', 'typdata': 'AppConst', 'visible': 'true', summe: '', minWidth: 66 },
           { 'name': 'TEILENUMMER', 'typdata': 'String', 'visible': 'true', summe: '', minWidth: 67 },
           { 'name': 'HERSTELLERTEILENUMMER', 'typdata': 'String', 'visible': 'true', summe: '', minWidth: 68 },
@@ -205,254 +205,254 @@ var config = {
         { 'title': 'Bezeichnung', minWidth: 90 }
       ]
     },
-      {
-        'title': 'LE',
-        'width': 100,
-        dataType: 'string', // # 1
-        'colModel': [
-          { 'title': 'Nr.', minWidth: 60, editable: true },
-          { 'title': 'Lagerort', minWidth: 60 },
-          { 'title': 'EZO', minWidth: 60 }
-        ]
-      },
-      {
-        'title': 'Inventur',
-        dataIndx: 'inv', // # 2
-        'colModel': [{
-          'title': 'INV',
-          dataIndx: 'inv',
-          maxWidth: 30,
-          minWidth: 30,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('INV:sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[8] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled/>"
-            }
+    {
+      'title': 'LE',
+      'width': 100,
+      dataType: 'string', // # 1
+      'colModel': [
+        { 'title': 'Nr.', minWidth: 60, editable: true },
+        { 'title': 'Lagerort', minWidth: 60 },
+        { 'title': 'EZO', minWidth: 60 }
+      ]
+    },
+    {
+      'title': 'Inventur',
+      dataIndx: 'inv', // # 2
+      'colModel': [{
+        'title': 'INV',
+        dataIndx: 'inv',
+        maxWidth: 30,
+        minWidth: 30,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('INV:sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
         },
-          { 'title': 'Grund', minWidth: 66 }
-        ]
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[8] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled/>"
+          }
+        }
       },
-      {
-        'title': 'Bestände',
-        'width': 50,
-        dataType: 'string', // # 3
-        'colModel': [
-          { 'title': 'total', minWidth: 30 },
-          { 'title': 'verfüg.', minWidth: 30 },
-          { 'title': 'reser.', minWidth: 30 },
-          { 'title': 'gesperrt', minWidth: 30 }
-        ]
-      },
+      { 'title': 'Grund', minWidth: 66 }
+      ]
+    },
+    {
+      'title': 'Bestände',
+      'width': 50,
+      dataType: 'string', // # 3
+      'colModel': [
+        { 'title': 'total', minWidth: 30 },
+        { 'title': 'verfüg.', minWidth: 30 },
+        { 'title': 'reser.', minWidth: 30 },
+        { 'title': 'gesperrt', minWidth: 30 }
+      ]
+    },
 
-      // TRANSPORT,INTERNESPERRE,CK_DISPOSTATUS,CK_QSSTATUS,
-      // OK;  { "name": "TRANSPORT", "typdata": "Boolean", "visible": "true", summe: "", minWidth: 79 },
-      {
-        'title': 'TR',
+    // TRANSPORT,INTERNESPERRE,CK_DISPOSTATUS,CK_QSSTATUS,
+    // OK;  { "name": "TRANSPORT", "typdata": "Boolean", "visible": "true", summe: "", minWidth: 79 },
+    {
+      'title': 'TR',
+      dataIndx: 'tr',
+      cls: 'red-col',
+      'colModel': [{
+        'title': '',
         dataIndx: 'tr',
-        cls: 'red-col',
-        'colModel': [{
-          'title': '',
-          dataIndx: 'tr',
-          minWidth: 10,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('TR: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[14] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        minWidth: 10,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('TR: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
-        }]
-      },
-
-      // { "name": "INTERNESPERRE", "typdata": "Numeric", "visible": "true", summe: "", minWidth: 80 },
-      {
-        'title': 'SP',
-        dataType: 'string',
-        'cls': 'red', // # 5
-        'colModel': [
-          { 'title': '', 'minWidth': 30, 'cls': 'beige' }
-        ]
-      },
-
-      // OK;  { "name": "CK_DISPOSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 81 },
-      {
-        'title': 'DS',
-        dataType: 'string', // # 6
-        'colModel': [
-          { 'title': '', 'minWidth': 60 }
-        ]
-      },
-
-      // { "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
-      {
-        'title': 'QS-Status',
-        dataType: 'string', // # 7
-        'colModel': [
-          { 'title': '', 'minWidth': 75 }
-        ]
-      },
-      {
-        'title': 'Hostlager',
-        dataType: 'string', // # 8
-        'colModel': [
-          { 'title': '', 'minWidth': 100 }
-        ]
-      },
-      {
-        'title': 'Avis',
-        'width': 150,
-        dataType: 'string', // # 9
-        'colModel': [
-          { 'title': 'Nr.', minWidth: 66 },
-          { 'title': 'Kiste', minWidth: 66 },
-          { 'title': 'Container', 'minWidth': 65 }
-        ]
-      },
-      {
-        'title': 'Kistendispo',
-        dataIndx: 'kd', // # 10
-        'colModel': [{
-          'title': '',
-          dataIndx: 'kd',
-          minWidth: 80,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('Kistendispo: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[22] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[14] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
           }
-        }]
-      },
-      {
-        'title': 'Inventur',
-        dataIndx: 'ina', // # 11
-        'colModel': [{
-          'title': 'INA',
-          dataIndx: 'ina',
-          minWidth: 60,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('INA: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[23] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        }
+      }]
+    },
+
+    // { "name": "INTERNESPERRE", "typdata": "Numeric", "visible": "true", summe: "", minWidth: 80 },
+    {
+      'title': 'SP',
+      dataType: 'string',
+      'cls': 'red', // # 5
+      'colModel': [
+        { 'title': '', 'minWidth': 30, 'cls': 'beige' }
+      ]
+    },
+
+    // OK;  { "name": "CK_DISPOSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 81 },
+    {
+      'title': 'DS',
+      dataType: 'string', // # 6
+      'colModel': [
+        { 'title': '', 'minWidth': 60 }
+      ]
+    },
+
+    // { "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
+    {
+      'title': 'QS-Status',
+      dataType: 'string', // # 7
+      'colModel': [
+        { 'title': '', 'minWidth': 75 }
+      ]
+    },
+    {
+      'title': 'Hostlager',
+      dataType: 'string', // # 8
+      'colModel': [
+        { 'title': '', 'minWidth': 100 }
+      ]
+    },
+    {
+      'title': 'Avis',
+      'width': 150,
+      dataType: 'string', // # 9
+      'colModel': [
+        { 'title': 'Nr.', minWidth: 66 },
+        { 'title': 'Kiste', minWidth: 66 },
+        { 'title': 'Container', 'minWidth': 65 }
+      ]
+    },
+    {
+      'title': 'Kistendispo',
+      dataIndx: 'kd', // # 10
+      'colModel': [{
+        'title': '',
+        dataIndx: 'kd',
+        minWidth: 80,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('Kistendispo: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
-        }]
-      },
-      {
-        'title': 'Verp.menge',
-        dataType: 'string',
-        'colModel': [
-          { 'title': '', 'minWidth': 80 }
-        ] // # 12
-      }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[22] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
+          }
+        }
+      }]
+    },
+    {
+      'title': 'Inventur',
+      dataIndx: 'ina', // # 11
+      'colModel': [{
+        'title': 'INA',
+        dataIndx: 'ina',
+        minWidth: 60,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('INA: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
+          }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[23] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
+          }
+        }
+      }]
+    },
+    {
+      'title': 'Verp.menge',
+      dataType: 'string',
+      'colModel': [
+        { 'title': '', 'minWidth': 80 }
+      ] // # 12
+    }
     ],
     'scrollModel': { pace: 'fast', horizontal: true, autoFit: false, theme: false },
     'dataModel': { 'location': 'local', 'url': url, 'sorting': 'local' },

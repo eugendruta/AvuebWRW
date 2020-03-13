@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  //globalconfig.LOGGER = false;
+
   dialogname = 'avueb'
   UTIL.logger(dialogname + ': ready(): Start')
 
@@ -84,18 +86,7 @@ $(document).ready(function () {
     var newWin = window.open(url, '_self')
   }
 
-  // Navigator
-  navinit()
-
-  // Navigator click event
-  $('#navigator').bind('tree.click', function (event) {
-    naviclick(event)
-  })
-
-  $('#navigator').hide()
-  $('#navmini').val('>')
-
-  customize = function customize (param) {
+  customize = function customize(param) {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
@@ -110,11 +101,10 @@ $(document).ready(function () {
           let name = eingabefelder[i].name
           let visible = eingabefelder[i].visible
           let eingabe = eingabefelder[i].eingabe
+          // Selkrit remove(insert)
           if (visible === 'false') {
-            // Selkrit remove
             _display = 'none'
           } else {
-            // Selkrit insert
             _display = ''
           }
           $('#' + name + 'lbl').css('display', _display)
@@ -136,11 +126,10 @@ $(document).ready(function () {
           let name = ausgabefelder[j].name
           let visible = ausgabefelder[j].visible
           let minWidth = ausgabefelder[j].minWidth
+          // Selkrit remove(insert)
           if (visible === 'false') {
-            // Selkrit remove
             _display = 'none'
           } else {
-            // Selkrit insert
             _display = ''
           }
 
@@ -154,9 +143,7 @@ $(document).ready(function () {
               UTIL.logger(dialogname + ': customize(): j: ' + j + '; ausgabe: feld.name: ' +
                 name + ': visible: ' + visible + '; minWidth: ' + minWidth)
 
-              // config.default.data["table1"].columns[j].minWidth
               $('#' + name + 'width').val(minWidth)
-
               config.default.data['table1'].columns[j].minWidth = minWidth
             }
           }
@@ -228,35 +215,6 @@ $(document).ready(function () {
 
   })
 
-  // Window click event
-  /*  
-    $(window).on('click', function (e) {
-      // e.preventDefault()
-      UTIL.logger(dialogname + ': onclick(): e.target.id: ' + e.target.id)
-      var status = localStorage.getItem(dialogname)
-      UTIL.logger(dialogname + ': onclick(): status: ' + status)
-      if (status === null) {
-        // Dialog noch nicht in localstorage eingetragen: eintragen.
-        localStorage.setItem(dialogname, 'focus')
-        UTIL.logger(dialogname + ': onclick() Dialog: ' + dialogname + ' im localStorage eingetragen')
-      }
-  
-      //Dialog starten      
-      //if (e.target.id) {
-        //naviclickdia(e.target.id)
-      //}
-      
-})
-  */
-
-  // Window doubleclick event
-  /*
-  $(window).on('dblclick', function (e) {
-    // e.preventDefault()
-    UTIL.logger(dialogname + ': ondblclick(): e.target.id: ' + e.target.id)
-  })
-  */
-
   // Window close Event
   $(window).on('beforeunload', function () {
     localStorage.setItem(dialogname, 'closed')
@@ -265,13 +223,11 @@ $(document).ready(function () {
     localStorage.setItem(dialogname + '.height', $(window).height())
     // Dialogeintrag löschen
     localStorage.removeItem(dialogname)
-
-    // return "Wollen Sie tatsächlich den Dialog schließen?"
     return true
   })
 
   // Eventlistener: Eintrag in localstorage
-  function onStorageEvent (storageEvent) {
+  function onStorageEvent(storageEvent) {
     /* StorageEvent {
     key; name of the property set, changed etc.; oldValue; old value of property before change
     newValue; new value of property after change;  url; url of page that made the change
@@ -285,8 +241,7 @@ $(document).ready(function () {
     var eintrag = localStorage.getItem(key)
     UTIL.logger(dialogname + ': onStorageEvent(): eintrag für key: ' + key + '; oldvalue: ' +
       oldvalue + '; newvalue: ' + newvalue + '; eintrag: ' + eintrag)
-      // eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
-
+    // eintrag für key: bsueb; oldvalue: *; newvalue: closed; eintrag: closed
     /* webrw.html closed
      * bsueb: onStorageEvent(): eintrag für key: bsueb; oldvalue: focus; newvalue: null
      * eintrag: null
@@ -338,7 +293,7 @@ $(document).ready(function () {
   })
 
   // Init. Listbox
-  function initLb (lbname) {
+  function initLb(lbname) {
     if ($('#' + lbname).val() === null) {
       // "listboxen": [{"name": "lotyplb", "typ": "appKonst", "table": "V_AC_FLSLAGERORTTYP"} oder SELECT Stmt.
       var url = globalconfig.bckendurl + 'Listbox?typ='
@@ -346,7 +301,7 @@ $(document).ready(function () {
         if (config.default.data.listboxen[i].name === lbname) {
           // "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager WHERE wert is not null order by 2"
           url += config.default.data.listboxen[i].typ +
-          '&table=' + config.default.data.listboxen[i].table
+            '&table=' + config.default.data.listboxen[i].table
           if (config.default.data.listboxen[i].constkey) {
             url += '&constkey=' + config.default.data.listboxen[i].constkey
           }
@@ -398,7 +353,7 @@ $.ajax({
   }
 
   // Listbox changed
-  changelb = function changelb (lbname, value) {
+  changelb = function changelb(lbname, value) {
     /* {"name": "hostlagerlb", "typ": "depends", 
       * "table": "SELECT wert, anzeige_text FROM v_dlg_bsueb_hostlager where mandantoid = '",
       "constkey": "MAN-efa", "dbcolumn": "HOSTLAGER"},      
@@ -419,7 +374,7 @@ $.ajax({
                 "&constkeyval='" + value + "'"
             } else {
               url += config.default.data.listboxen[j].typ +
-              '&table=' + config.default.data.listboxen[j].table
+                '&table=' + config.default.data.listboxen[j].table
             }
             UTIL.logger(dialogname + ': changelb(): url: ' + url)
             $.getJSON(url, function (data) {
@@ -437,7 +392,7 @@ $.ajax({
   }
 
   // Listboxen init.
-  function initLbs () {
+  function initLbs() {
     $('#eingabediv1 select').each(function (lb) {
       var lbname = $(this).attr('id')
       if (lbname !== undefined) {
@@ -448,11 +403,14 @@ $.ajax({
   initLbs()
 
   // Click auf Tabellenrow (aufgerufen: .on('click', 'tr')
-  rowclickaction = function rowClickAction (action, doubleclick, rowdata) {
+  rowclickaction = function rowClickAction(action, doubleclick, rowdata) {
     UTIL.logger(dialogname + ': rowClickAction(): action: ' + action + '/' +
       (doubleclick === true ? 'doubleclick' : 'singleclick') + '; LE-Nr.: ' + rowdata[5])
     // Doppelclick: Detaildialog starten
-    if (action === 'select' && doubleclick) { } else if (action === 'select' && !doubleclick) {
+    if (action === 'select' && doubleclick) {
+      alert('Doubleclick: Folgedialog aufrufen')
+    }
+    else if (action === 'select' && !doubleclick) {
       // Toolbarbuttons enablen
       $('#detail').attr('disabled', false)
       $('#detail').css('background-color', 'white')
@@ -496,7 +454,7 @@ $.ajax({
   }
 
   // Tabelle anzeigen
-  showtable = function showtable (tabelle) {
+  showtable = function showtable(tabelle) {
     var lastclicktime = 0
     var doubleclick = false
     var delay = 200
@@ -537,9 +495,9 @@ $.ajax({
                 klausel += field + "='" + value + "' AND "
                 // Eingabe speichern
                 config.default.data.inputfelder[i].eingabe = value
-              // UTIL.logger(dialogname + ': showtable(): eingaben: '
-              // + config.default.data.inputfelder[i].eingabe + '; visible: '
-              // + config.default.data.inputfelder[i].visible)
+                // UTIL.logger(dialogname + ': showtable(): eingaben: '
+                // + config.default.data.inputfelder[i].eingabe + '; visible: '
+                // + config.default.data.inputfelder[i].visible)
               }
               break
             }
@@ -625,15 +583,15 @@ $.ajax({
     }
 
     config.obj.selectChange = function (evt, ui) {
+      /* rows;  Type: Array
+        Array of objects { rowIndx: rowIndx, rowData: rowData }.
+      */
       var rows = ui.rows
       if (rows && rows.length) {
         for (var i = 0; i < rows.length; i++) {
-          UTIL.logger(
-            dialogname +
-            '; selectChange(): rows[' +
-            i +
-            '].rowData[5]: ' +
-            rows[i].rowData[5]
+          UTIL.logger(dialogname +
+            '; selectChange(): rows[' + rows[i].rowIndx + '].rowData[5]: ' + rows[i].rowData[5]
+            + '; rowIndx: ' + rows[i].rowIndx
           )
         }
       }
@@ -658,24 +616,15 @@ $.ajax({
       }
 
       $('#ausgabediv1').pqGrid(config.obj)
-      /*
-      $('#ausgabediv1').pqGrid({
-        cellDblClick: function (event, ui) {
-          var rowData = ui.rowData
-          console.log('cellDblClick:  event: ' + event + '; rowData: ' + rowData)
-        }
-      })
-      */
-
       $('#ausgabediv1').on('pqgridcelldblclick',
         function (event, ui) {
           var rowData = ui.rowData
-          console.log('cellDblClick:  event.target.title: ' + event.target.title
+          UTIL.logger(dialogname + '; cellDblClick:  event.target.title: ' + event.target.title
             + '; rowIndx: ' + ui.rowIndx + '; rowData[5]: ' + rowData[5])
 
           // Aufruf Detaildialog AVDET
           var detdialog = 'AVDET: Auftragsdetail'
-          naviclickdia(detdialog)
+          naviclickdia(detdialog, rowData[5])
         }
       )
 
@@ -686,7 +635,7 @@ $.ajax({
   }
 
   // Summenzeile berechnen
-  function calculateSummary (ui) {
+  function calculateSummary(ui) {
     var _summenzeile = Array(ui.dataModel.data[0].length).fill(0)
     for (var i = 0; i < ui.dataModel.data.length; i++) {
       for (var j = 0; j < ui.dataModel.data[i].length; j++) {
@@ -728,7 +677,7 @@ $.ajax({
   }
 
   // Folgedialog starten
-  detail = function detail (aktdialog) {
+  detail = function detail(aktdialog) {
     // Eintrag localStorage
     var eingetragen = localStorage.getItem(aktdialog) ? true : false
     UTIL.logger(dialogname + ': detail(): dialog: ' + aktdialog + ' eingetragen: ' + eingetragen)
@@ -739,12 +688,12 @@ $.ajax({
   }
 
   // tabelle aktualisieren
-  aktualisieren = function aktualisieren () {
+  aktualisieren = function aktualisieren() {
     showtable('table1')
   }
 
   // Customising speichern
-  speicherncust = function speicherncust (tabelle) {
+  speicherncust = function speicherncust(tabelle) {
     UTIL.logger(dialogname + ': speicherncust(): tabelle: ' + tabelle)
 
     let _display = 'none'
@@ -801,7 +750,7 @@ $.ajax({
     $('#custom').dialog('close')
   }
 
-  resetcust = function resetcust (block, param) {
+  resetcust = function resetcust(block, param) {
     UTIL.logger(dialogname + ': resetcust(): block: ' + block + '; param: ' + param)
     if (block === 'eingabe') {
       // Alle Checkboxen checked
