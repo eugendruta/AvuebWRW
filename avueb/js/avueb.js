@@ -311,6 +311,7 @@ $(document).ready(function () {
           $.ajax({
             url: url,
             type: 'GET',
+            crossDomain: true,
             dataType: 'json'
           })
             .done(function (data) {
