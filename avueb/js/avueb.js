@@ -353,9 +353,26 @@ $(document).ready(function () {
           UTIL.logger(dialogname + ': XXX initLb(): lbname: ' + lbname + '; url: ' + url)
 
           // Using the core $.ajax() method
+          /*
+$.ajax({
+            url: "http://localhost:8079/students/add/",
+            type: "POST",
+            crossDomain: true,
+            data: JSON.stringify(somejson),
+            dataType: "json",
+            success: function (response) {
+                var resp = JSON.parse(response)
+                alert(resp.status)
+            },
+            error: function (xhr, status) {
+                alert("error")
+            }
+              })
+          */
           $.ajax({
             url: url,
             type: 'GET',
+            crossDomain: true,
             dataType: 'json'
           })
             .done(function (data) {
