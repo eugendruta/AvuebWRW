@@ -7,7 +7,16 @@ var config = {
     'showonstart': false,
     'data': {
       'inputfelder': [
-        { 'name': 'lenr', 'visible': 'true', 'dbcolumn': 'le', 'eingabe': '' },
+        /*
+    '<label id="lenrlbl" class="custlabel">LE-Nr '
+    + '<input id="' + config.default.data.inputfelder[0].name + '" type="text"'
+    + ' style="max-width: 95 px;"> </label>');
+        */
+        {
+          'name': 'lenr', 'visible': 'true', 'dbcolumn': 'le', 'eingabe': '',
+          'lblid': 'lenrlbl', 'class': 'custlabel', 'lbltext': 'LE-Nr', 'type': 'text',
+          'style': 'max-width: 95 px;'
+        },
         { 'name': 'lotyplb', 'visible': 'true', 'eingabe': '' },
         { 'name': 'ezolb', 'visible': 'true', 'eingabe': '' },
         { 'name': 'dispostatuslb', 'visible': 'true', 'eingabe': '' },
