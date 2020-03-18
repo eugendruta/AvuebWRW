@@ -17,19 +17,23 @@
 
   <script>
     /* config = {'default': {
-                                                                    'showonstart': false,
-                                                                    'data': {
-                                                                      'inputfelder': [{
-                                                                            'name': 'lenr',
-                                                                            'visible': 'true',
-                                                                            'dbcolumn': 'le',
-                                                                            'eingabe': ''
-                                                                          },
-                                                                    */
+      'showonstart': false,
+      'data': {
+        'inputfelder': [
+        {
+          'name': 'lenr', 'visible': 'true', 'dbcolumn': 'le', 'eingabe': '',
+          'lblid': 'lenrlbl', 'class': 'custlabel', 'lbltext': 'LE-Nr', 'type': 'text',
+          'style': 'max-width: 95 px;'
+        },
+        { 'name': 'lotyplb', 'visible': 'true', 'eingabe': '' }, ...        
+    */
     $("#testen").append(
-      '<label id="lenrlbl" class="custlabel">LE-Nr <input id ="' +
-      config.default.data.inputfelder[0].name + '" type = "text"' +
-      'style = "max - width: 95 px;"> </label>');
+      '<label id="' + config.default.data.inputfelder[0].lblid +
+      '" class="' + config.default.data.inputfelder[0].class +
+      '">' + config.default.data.inputfelder[0].lbltext + 
+      ' <input id ="' + config.default.data.inputfelder[0].name +
+      '" type = "' + config.default.data.inputfelder[0].type +
+      '" style = "' + config.default.data.inputfelder[0].style + '"> </label>');
     $("#testen").append(
       '<label id="lotyplblbl" class="custlabel">LO-Typ' +
       ' <select id = "lotyplb" style = "width: 100px;" > < /select> </label > ');

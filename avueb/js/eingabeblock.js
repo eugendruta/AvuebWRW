@@ -1,26 +1,52 @@
 inputfelder = function () {
+  for (i = 0; i < config.default.data.inputfelder.length; i++) {
+    if (config.default.data.inputfelder[i].name.endsWith('lb')) {
+      $('#eingabediv1').append(
+        '<label id="' + config.default.data.inputfelder[i].lblid + '"'
+        + ' class="' + config.default.data.inputfelder[i].class + '">'
+        + config.default.data.inputfelder[i].lbltext
+        + '<select id="' + config.default.data.inputfelder[i].name + '"'
+        + ' type="' + config.default.data.inputfelder[i].type + '"'
+        + ' style="' + config.default.data.inputfelder[i].style + '"'
+        + '> </label>')
+    } else {
+      $('#eingabediv1').append(
+        '<label id="' + config.default.data.inputfelder[i].lblid + '"'
+        + ' class="' + config.default.data.inputfelder[i].class + '">'
+        + config.default.data.inputfelder[i].lbltext
+        + '<input id="' + config.default.data.inputfelder[i].name + '"'
+        + ' type="' + config.default.data.inputfelder[i].type + '"'
+        + ' style="' + config.default.data.inputfelder[i].style + '"'
+        + '> </label>')
+    }
+  }
+
+  // Buttons
+  $('#eingabediv1').append(
+    '<br>'
+  )
+
   /*
-{
- 'name': 'lenr', 'visible': 'true', 'dbcolumn': 'le', 'eingabe': '',
- 'lblid': 'lenrlbl', 'class': 'custlabel', 'lbltext': 'LE-Nr', 'type': 'text',
- 'style': 'max-width: 95 px;'
-}  
+  <input id="anzeigen1" value="Anzeigen" type="submit" class="butn" style="max-width: 90px; float: left;" onclick="showtable( 'table1')">
+  <input id="reset1" value="Reset" type="submit" class="butn" style="width: 90px;">
   */
-  $('#testen').append(
-    '<label id="' + config.default.data.inputfelder[0].lblid + '"'
-    + ' class="' + config.default.data.inputfelder[0].class + '">'
-    + config.default.data.inputfelder[0].lbltext
-    + '<input id="' + config.default.data.inputfelder[0].name + '"'
-    + ' type="' + config.default.data.inputfelder[0].type + '"'
-    + ' style="' + config.default.data.inputfelder[0].style + '"'
-    + '> </label>');
-  $('#testen').append(
-    '<label id="lotyplblbl" class="custlabel">LO-Typ '
-    + '<select id="' + config.default.data.inputfelder[1].name
-    + '" type="text"' + ' style="width: 100px;"></select></label >');
-  $('#testen').append(
-    '<label id="ezolblbl" class="custlabel">EZO '
-    + '<select id="' + config.default.data.inputfelder[2].name
-    + '" type="text"' + ' style="width: 100px;"></select></label >');
+
+  for (i = 0; i < config.default.data.buttons.length; i++) {
+    console.log('insert: ' + '<input id="'
+      + config.default.data.buttons[i].btnid + '"'
+      + ' value="' + config.default.data.buttons[i].value + '"'
+      + ' type="' + config.default.data.buttons[i].type + '"'
+      + ' class="' + config.default.data.buttons[i].class + '"'
+      + ' style="' + config.default.data.buttons[i].style + '"'
+      + ' onclick="' + config.default.data.buttons[i].onclick + '"'
+      + '>')
+    $('#eingabediv1').append(
+      '<input id="' + config.default.data.buttons[i].btnid + '"'
+      + ' value="' + config.default.data.buttons[i].value + '"'
+      + ' type="' + config.default.data.buttons[i].type + '"'
+      + ' class="' + config.default.data.buttons[i].class + '"'
+      + ' style="' + config.default.data.buttons[i].style + '"'
+      + ' onclick="' + config.default.data.buttons[i].onclick + '"'      
+      + '>')
+  }
 }
-inputfelder()
