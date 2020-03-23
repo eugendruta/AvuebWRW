@@ -12,7 +12,7 @@ $(document).ready(function () {
     if (e.pageX <= 0 && (x != e.pageX)) {
       x = e.pageX
       // console.log('x:' + e.pageX + ', y: ' + (e.pageY - window.pageYOffset))
-      $('.menuex').toggle()
+      $('#navi').toggle() //menuex
 
       if (togledone) {
         togledone = false
@@ -30,7 +30,7 @@ $(document).ready(function () {
     for (var m = 0; m < anzMenuepkt; m++) {
       _menue += "<li class='myitemf'>" + data[m].label + '&nbsp;&nbsp;&nbsp;'
 
-      UTIL.logger(dialogname + ': ready(): data[' + m + '].label: ' + data[m].label + ';data[m].children: ' + data[m].children)
+      UTIL.logger(dialogname + ': createMenue(): data[' + m + '].label: ' + data[m].label + ';data[m].children: ' + data[m].children)
       if (data[m].children != undefined) {
         _menue += '<ul>'
         for (var k = 0; k < data[m].children.length; k++) {
@@ -43,10 +43,10 @@ $(document).ready(function () {
               '   </li>'
           }
 
-          UTIL.logger(dialogname + ': ready(): data[' + m + '].children[' + k + '].label: ' + data[m].children[k].label)
+          UTIL.logger(dialogname + ': createMenue(): data[' + m + '].children[' + k + '].label: ' + data[m].children[k].label)
           if (data[m].children[k].children != undefined) {
             for (var j = 0; j < data[m].children[k].children.length; j++) {
-              UTIL.logger(dialogname + ': ready(): data[' + m + '].children[' + k + '].children[' + j + '].label: ' +
+              UTIL.logger(dialogname + ': createMenue(): data[' + m + '].children[' + k + '].children[' + j + '].label: ' +
                 data[m].children[k].children[j].label)
               _menue += "<li class='myitem'>" +
                 "<input value='&nbsp;&nbsp;" + data[m].children[k].children[j].label +
@@ -60,7 +60,8 @@ $(document).ready(function () {
       }
     }
     _menue += '</ul>'
-    $('#menue').append(_menue)
+    $('#navi').append(_menue)
+    UTIL.logger(dialogname + ': createMenue(): menue created')
   }
   createMenue(7)
 
