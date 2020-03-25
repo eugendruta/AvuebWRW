@@ -612,7 +612,8 @@ $(document).ready(function () {
 
           // Aufruf Detaildialog AVDET
           var detdialog = 'AVDET: Auftragsdetail'
-          naviclickdia(detdialog, rowData[5])
+          var parmfolge = {"mandant": "efa", "lenr": rowData[5]}
+          naviclickdia(detdialog, parmfolge)
         }
       )
 
