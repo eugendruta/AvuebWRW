@@ -6,13 +6,14 @@ $(document).ready(function () {
 
   inputfelder()
 
+  //Pulldownmenue ein/ausblenden
   var togledone = true
   var x
   $(document).mousemove(function (e) {
     if (e.pageX <= 0 && (x != e.pageX)) {
       x = e.pageX
       // console.log('x:' + e.pageX + ', y: ' + (e.pageY - window.pageYOffset))
-      $('#navi').toggle() //menuex
+      $('#navi').toggle() //.menuex
 
       if (togledone) {
         togledone = false
@@ -60,7 +61,7 @@ $(document).ready(function () {
       }
     }
     _menue += '</ul>'
-    $('#navi').append(_menue)
+    $('#navi').append(_menue) //#menue
     UTIL.logger(dialogname + ': createMenue(): menue created')
   }
   createMenue(7)
@@ -71,7 +72,7 @@ $(document).ready(function () {
 
   $(window).resize(function () {
     if ($(window).width() > 768) {
-      UTIL.logger(dialogname + '; resize(): width() > 768')
+      //UTIL.logger(dialogname + '; resize(): width() > 768')
     }
   })
 
