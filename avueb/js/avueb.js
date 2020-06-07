@@ -24,7 +24,7 @@ $(document).ready(function () {
     }
   })
 
-  // Create Menue
+  // Create Menue: data kommt aus navihator.js
   createMenue = function (anzMenuepkt) {
     var _menue = '<ul>'
     for (var m = 0; m < anzMenuepkt; m++) {
