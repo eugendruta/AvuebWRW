@@ -92,6 +92,14 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
+      // Customisationdialog
+      $('#custom').dialog({
+        title: 'Customize',
+        autoOpen: false,
+        width: 600,
+        height: 420,
+        modal: true
+      })
       $('#custom').dialog('open')
     } else if (param === 'custfelder') {
       // Eingabefelder
@@ -284,15 +292,7 @@ $(document).ready(function () {
 
   window.addEventListener('storage', onStorageEvent, false)
 
-  // Customisationdialog
-  $('#custom').dialog({
-    title: 'Customize',
-    autoOpen: false,
-    width: 600,
-    height: 420,
-    modal: true,
-    closeText: ''
-  })
+
 
   // Init. Listbox
   function initLb(lbname) {

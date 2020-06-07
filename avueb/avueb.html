@@ -11,7 +11,7 @@
   <script src="../resources/js/jquery-3.4.1.js"></script>
   <script src="../resources/js/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <link href="../resources/css/fontawesome/css/all.css" rel="stylesheet">
   <script src="../resources/js/plugins/jqTree/tree.jquery.js"></script>
   <link href="../resources/css/jqtree.css" rel="stylesheet">
@@ -23,7 +23,7 @@
   <script src="../../jslibwrw/util.js"></script>
   <script src="../../jslibwrw/navigator.js"></script>
   <script src="js/config.js"></script>
-  <script src="js/eingabeblock.js"></script>  
+  <script src="js/eingabeblock.js"></script>
   <script src="js/avueb.js"></script>
 
   <!--ParamQuery Grid files-->
@@ -50,38 +50,27 @@
           </td>
           <td style="border: none; text-align: left;">
             <div id='toolbarbuttons'>
-              <button id="aktualisieren" class="ui-button ui-widget ui-corner-all ui-button-icon-only"
-                title="Aktualisieren" style="height: 20px;" onclick="aktualisieren()">
+              <button id="aktualisieren" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Aktualisieren" style="height: 20px;" onclick="aktualisieren()">
                 <span class="ui-icon ui-icon-refresh"></span></button>
-              <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail"
-                style="height: 20px;" onclick="detail( 'avdet')">
+              <button id="detail" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Detail" style="height: 20px;" onclick="detail( 'avdet')">
                 <span class="ui-icon ui-icon-zoomin"></span></button>
-              <button id="neu" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Neu"
-                style="height: 20px;">
+              <button id="neu" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Neu" style="height: 20px;">
                 <span class="ui-icon ui-icon-document"></span></button>
-              <button id="aendern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Ändern"
-                style="height: 20px;">
+              <button id="aendern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Ändern" style="height: 20px;">
                 <span class="ui-icon ui-icon-document-b"></span></button>
-              <button id="speichern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Speichern"
-                style="height: 20px;">
+              <button id="speichern" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Speichern" style="height: 20px;">
                 <span class="ui-icon ui-icon-check"></span></button>
-              <button id="zurueck" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Zurück"
-                style="height: 20px;">
+              <button id="zurueck" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Zurück" style="height: 20px;">
                 <span class="ui-icon ui-icon-arrowreturn-1-w"></span></button>
-              <button id="loeschen" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Löschen"
-                style="height: 20px;">
+              <button id="loeschen" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Löschen" style="height: 20px;">
                 <span class="ui-icon ui-icon-trash"></span></button>
-              <button id="drucken" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Drucken"
-                style="height: 20px;">
+              <button id="drucken" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Drucken" style="height: 20px;">
                 <span class="ui-icon ui-icon-print"></span></button>
-              <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only"
-                title="Eingabehilfe" style="height: 20px;" onclick="customize( 'param')">
+              <button id="eingabehilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Eingabehilfe" style="height: 20px;" onclick="customize( 'param')">
                 <span class="ui-icon ui-icon-search"></span></button>
-              <button id="hilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Hilfe"
-                style="height: 20px;">
+              <button id="hilfe" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Hilfe" style="height: 20px;">
                 <span class="ui-icon ui-icon-help"></span></button>
-              <button id="favorit" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Favorit"
-                style="height: 20px;">
+              <button id="favorit" class="ui-button ui-widget ui-corner-all ui-button-icon-only" title="Favorit" style="height: 20px;">
                 <span class="ui-icon ui-icon-star"></span></button>
             </div>
           </td>
@@ -90,7 +79,7 @@
 
     </div>
 
-    <div class="eingabex" >
+    <div class="eingabex">
       <div id="eingabediv1">
       </div>
 
@@ -181,7 +170,7 @@
       -->
 
       <!-- Customize -->
-      <div id="custom" style="left: 5px; display: none;">
+      <div id="custom" title="Basic dialog" style="left: 5px; display: none;">
         <b>Selektionskriterien</b> <br>
         <label class="custlabel">LE-Nr
           <input class="custinput" id="lenrcust" type="checkbox" checked>
@@ -263,12 +252,10 @@
         <table style="border: none; width: 200px;">
           <tr>
             <td class="tdlabelleft">
-              <input id="resetcust" value="Reset" type="submit" style="width: 90px;"
-                onclick="resetcust( 'eingabe', 'reset')">
+              <input id="resetcust" value="Reset" type="submit" style="width: 90px;" onclick="resetcust( 'eingabe', 'reset')">
             </td>
             <td class="tdlabelleft">
-              <input id="clearcust" value="Clear" type="submit" style="width: 90px;"
-                onclick="resetcust( 'eingabe', 'clear')">
+              <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust( 'eingabe', 'clear')">
             </td>
           </tr>
         </table>
@@ -379,22 +366,19 @@
         <table style="border: none; width: 200px;">
           <tr>
             <td class="tdlabelleft">
-              <input id="speichernausg" value="Speichern" type="submit" style="max-width: 90px;"
-                onclick="speicherncust( 'table1')">
+              <input id="speichernausg" value="Speichern" type="submit" style="max-width: 90px;" onclick="speicherncust( 'table1')">
             </td>
             <td class="tdlabelleft">
-              <input id="resetausg" value="Reset" type="submit" style="width: 90px;"
-                onclick="resetcust( 'ausgabe', 'reset')">
+              <input id="resetausg" value="Reset" type="submit" style="width: 90px;" onclick="resetcust( 'ausgabe', 'reset')">
             </td>
             <td class="tdlabelleft">
-              <input id="clearcust" value="Clear" type="submit" style="width: 90px;"
-                onclick="resetcust( 'ausgabe', 'clear')">
+              <input id="clearcust" value="Clear" type="submit" style="width: 90px;" onclick="resetcust( 'ausgabe', 'clear')">
             </td>
           </tr>
         </table>
       </div>
     </div>
-    
+
     <div class="leftx">L</div>
     <div class="contentx">
       <div id="ausgabediv1" style="margin: auto;">
