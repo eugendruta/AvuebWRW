@@ -25,7 +25,7 @@ $(document).ready(function () {
     }
   })
 
-  // Create Menue
+  // Create Menue: data kommt aus navigator.js
   createMenue = function (anzMenuepkt) {
     var _menue = '<ul>'
     for (var m = 0; m < anzMenuepkt; m++) {
@@ -94,8 +94,15 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
-      localStorage.setItem(dialogname + '.modal', 'true')      
-      $('#custom').dialog({autoOpen: true, close: false})       
+      // Customisationdialog
+      $('#custom').dialog({
+        title: 'Customize',
+        autoOpen: false,
+        width: 600,
+        height: 420,
+        modal: true
+      })
+      $('#custom').dialog('open')
     } else if (param === 'custfelder') {
       // Eingabefelder
       let jsonstring = localStorage.getItem(dialogname + '.eingabe')
@@ -287,15 +294,7 @@ $(document).ready(function () {
 
   window.addEventListener('storage', onStorageEvent, false)
 
-  // Customisationdialog
-  $('#custom').dialog({
-    title: 'Customize',
-    autoOpen: false,
-    width: 600,
-    height: 420,
-    modal: true,
-    closeText: ''
-  })
+
 
   // Init. Listbox
   function initLb(lbname) {
@@ -326,8 +325,8 @@ $(document).ready(function () {
                 $('#' + lbname).append($('<option></option>').val(value.id).html(value.name))
               })
 
-              $('#' + lbname).show() 
-			  			  
+              $('#' + lbname).show()
+
             })
             .fail(function (xhr, status, errorThrown) {
               alert('Sorry, there was a problem!')
@@ -616,8 +615,8 @@ $(document).ready(function () {
           var detdialog = 'AVDET: Auftragsdetail'
           var _mandant = $('#mandantlb').val()
           UTIL.logger(dialogname + '; cellDblClick:  selcted mandant: ' + _mandant);
-          
-          var parmfolge = {"mandant": _mandant, "lenr": rowData[5]}
+
+          var parmfolge = { "mandant": _mandant, "lenr": rowData[5] }
           naviclickdia(detdialog, parmfolge)
         }
       )
