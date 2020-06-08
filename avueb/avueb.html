@@ -19,6 +19,7 @@
   <link href="../resources/css/style.css" rel="stylesheet">
   <link href="../resources/css/main.css" rel="stylesheet">
   <link href="../resources/css/gridlayout.css" rel="stylesheet">
+  <link href="../resources/css/menustyle.css" rel="stylesheet">
   <script src="../../jslibwrw/globalconfig.js"></script>
   <script src="../../jslibwrw/util.js"></script>
   <script src="../../jslibwrw/navigator.js"></script>
@@ -38,10 +39,16 @@
 </head>
 
 <body>
+  <nav id="wrapper" style="margin-left: 5px;">
+    <div id="navi">
+    </div>
+  </nav>
   <section class="grid-1x">
+    <!--
     <div class="menuex">
       <div id="menue"></div>
-    </div>
+    </div> 
+  -->
     <div class="titelx">
       <table style="width: 100%;">
         <tr>
@@ -380,10 +387,10 @@
 
     <div class="leftx">L</div>
     <div class="contentx">
-      <div id="ausgabediv1" style="margin: auto;">
+      <div id="ausgabediv1" style="margin: auto; height: 5px;">
       </div>
     </div>
-    <div class="rightx">R</div>
+    <div class="rightx"></div>
     <div class="buttonsx">
       <div id="buttonsdiv1">
         <button id="freigeben" type="button" class="butn" onclick="alert( 'Freigeben !!');">
@@ -416,8 +423,6 @@
       </footer>
     </div>
   </section>
-
-
 </body>
 
 </html>

@@ -1,3 +1,4 @@
+
 // Initialisierung Dialoge
 var aktdialog
 var table1
@@ -287,7 +288,7 @@ var config = {
     }
   },
   'obj': {
-    height: 600,
+    height: 450,
     sortIndx: 0,
     'colModel': [{
       'title': 'Teil',

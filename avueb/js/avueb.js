@@ -6,13 +6,14 @@ $(document).ready(function () {
 
   inputfelder()
 
+  //Pulldownmenue ein/ausblenden
   var togledone = true
   var x
   $(document).mousemove(function (e) {
     if (e.pageX <= 0 && (x != e.pageX)) {
       x = e.pageX
       // console.log('x:' + e.pageX + ', y: ' + (e.pageY - window.pageYOffset))
-      $('.menuex').toggle()
+      $('#navi').toggle() //.menuex
 
       if (togledone) {
         togledone = false
@@ -30,7 +31,7 @@ $(document).ready(function () {
     for (var m = 0; m < anzMenuepkt; m++) {
       _menue += "<li class='myitemf'>" + data[m].label + '&nbsp;&nbsp;&nbsp;'
 
-      UTIL.logger(dialogname + ': ready(): data[' + m + '].label: ' + data[m].label + ';data[m].children: ' + data[m].children)
+      UTIL.logger(dialogname + ': createMenue(): data[' + m + '].label: ' + data[m].label + ';data[m].children: ' + data[m].children)
       if (data[m].children != undefined) {
         _menue += '<ul>'
         for (var k = 0; k < data[m].children.length; k++) {
@@ -43,10 +44,10 @@ $(document).ready(function () {
               '   </li>'
           }
 
-          UTIL.logger(dialogname + ': ready(): data[' + m + '].children[' + k + '].label: ' + data[m].children[k].label)
+          UTIL.logger(dialogname + ': createMenue(): data[' + m + '].children[' + k + '].label: ' + data[m].children[k].label)
           if (data[m].children[k].children != undefined) {
             for (var j = 0; j < data[m].children[k].children.length; j++) {
-              UTIL.logger(dialogname + ': ready(): data[' + m + '].children[' + k + '].children[' + j + '].label: ' +
+              UTIL.logger(dialogname + ': createMenue(): data[' + m + '].children[' + k + '].children[' + j + '].label: ' +
                 data[m].children[k].children[j].label)
               _menue += "<li class='myitem'>" +
                 "<input value='&nbsp;&nbsp;" + data[m].children[k].children[j].label +
@@ -60,7 +61,8 @@ $(document).ready(function () {
       }
     }
     _menue += '</ul>'
-    $('#menue').append(_menue)
+    $('#navi').append(_menue) //#menue
+    UTIL.logger(dialogname + ': createMenue(): menue created')
   }
   createMenue(7)
 
@@ -70,7 +72,7 @@ $(document).ready(function () {
 
   $(window).resize(function () {
     if ($(window).width() > 768) {
-      UTIL.logger(dialogname + '; resize(): width() > 768')
+      //UTIL.logger(dialogname + '; resize(): width() > 768')
     }
   })
 
@@ -323,7 +325,8 @@ $(document).ready(function () {
                 $('#' + lbname).append($('<option></option>').val(value.id).html(value.name))
               })
 
-              $('#' + lbname).show()
+              $('#' + lbname).show() 
+			  			  
             })
             .fail(function (xhr, status, errorThrown) {
               alert('Sorry, there was a problem!')
@@ -610,7 +613,11 @@ $(document).ready(function () {
 
           // Aufruf Detaildialog AVDET
           var detdialog = 'AVDET: Auftragsdetail'
-          naviclickdia(detdialog, rowData[5])
+          var _mandant = $('#mandantlb').val()
+          UTIL.logger(dialogname + '; cellDblClick:  selcted mandant: ' + _mandant);
+          
+          var parmfolge = {"mandant": _mandant, "lenr": rowData[5]}
+          naviclickdia(detdialog, parmfolge)
         }
       )
 
