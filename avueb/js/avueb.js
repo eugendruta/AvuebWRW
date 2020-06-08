@@ -94,7 +94,8 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
-      $('#custom').dialog('open')
+      localStorage.setItem(dialogname + '.modal', 'true')      
+      $('#custom').dialog({autoOpen: true, close: false})       
     } else if (param === 'custfelder') {
       // Eingabefelder
       let jsonstring = localStorage.getItem(dialogname + '.eingabe')
