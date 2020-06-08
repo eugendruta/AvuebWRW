@@ -325,8 +325,8 @@ $(document).ready(function () {
                 $('#' + lbname).append($('<option></option>').val(value.id).html(value.name))
               })
 
-              $('#' + lbname).show() 
-			  			  
+              $('#' + lbname).show()
+
             })
             .fail(function (xhr, status, errorThrown) {
               alert('Sorry, there was a problem!')
@@ -615,8 +615,8 @@ $(document).ready(function () {
           var detdialog = 'AVDET: Auftragsdetail'
           var _mandant = $('#mandantlb').val()
           UTIL.logger(dialogname + '; cellDblClick:  selcted mandant: ' + _mandant);
-          
-          var parmfolge = {"mandant": _mandant, "lenr": rowData[5]}
+
+          var parmfolge = { "mandant": _mandant, "lenr": rowData[5] }
           naviclickdia(detdialog, parmfolge)
         }
       )
