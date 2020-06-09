@@ -1,6 +1,15 @@
 $(document).ready(function () {
   // globalconfig.LOGGER = false
 
+  $(window).blur(function (e) {
+    var modal = localStorage.getItem('modal')
+    console.log('Blur: modal: ' + modal)
+    if (modal === 'true') {
+      //Modalen PopUp schließen
+      $('#custom').dialog('close')
+    }
+  });
+
   dialogname = 'avueb';
   UTIL.logger(dialogname + ': ready(): Start')
 
@@ -94,15 +103,24 @@ $(document).ready(function () {
     UTIL.logger(dialogname + ': customize(): param: ' + param)
 
     if (param === 'param') {
-      // Customisationdialog
+      // Customisationdialog öffnen
       $('#custom').dialog({
         title: 'Customize',
         autoOpen: false,
         width: 600,
         height: 420,
-        modal: true
+        modal: true,
+        close: function (event, ui) {
+          localStorage.removeItem('modal');
+        }
       })
+      /*
+      $("#custom").on("dialogclose", function (event, ui) {
+        console.log('dialogclose')
+      });
+      */
       $('#custom').dialog('open')
+      localStorage.setItem('modal', 'true')
     } else if (param === 'custfelder') {
       // Eingabefelder
       let jsonstring = localStorage.getItem(dialogname + '.eingabe')
