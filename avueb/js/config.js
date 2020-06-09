@@ -6,7 +6,7 @@ var url
 var config = {
   'default': {
     'showonstart': false,
-    'data': { 
+    'data': {
       'inputfelder': [
         {
           'name': 'lenr', 'visible': 'true', 'dbcolumn': 'le', 'eingabe': '',
@@ -18,99 +18,123 @@ var config = {
           'lblid': 'lotyplblbl', 'class': 'custlabel', 'lbltext': 'LO-Typ ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'ezolb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'ezolb', 'visible': 'true', 'eingabe': '',
           'lblid': 'ezolblbl', 'class': 'custlabel', 'lbltext': 'EZO ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'dispostatuslb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'dispostatuslb', 'visible': 'true', 'eingabe': '',
           'lblid': 'dispostatuslblbl', 'class': 'custlabel', 'lbltext': 'Dispostatus ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'kiste', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'kiste', 'visible': 'true', 'eingabe': '',
           'lblid': 'kistelbl', 'class': 'custlabel', 'lbltext': 'Kiste ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'mandantlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'mandantlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'mandantlblbl', 'class': 'custlabel', 'lbltext': 'Mandant ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'lagerortlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'lagerortlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'lagerortlblbl', 'class': 'custlabel', 'lbltext': 'Lagerort ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'ezoavisiertlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'ezoavisiertlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'ezoavisiertlblbl', 'class': 'custlabel', 'lbltext': 'EZO avisiert ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'qsstatuslb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'qsstatuslb', 'visible': 'true', 'eingabe': '',
           'lblid': 'qsstatuslblbl', 'class': 'custlabel', 'lbltext': 'QS-Status ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'container', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'container', 'visible': 'true', 'eingabe': '',
           'lblid': 'containerlbl', 'class': 'custlabel', 'lbltext': 'Container ', 'type': 'text',
           'style': 'max-width: 70px;'
         },
-        { 'name': 'hostlagerlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'hostlagerlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'hostlagerlblbl', 'class': 'custlabel', 'lbltext': 'Hostlager ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'lagerbereichlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'lagerbereichlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'lagerbereichlblbl', 'class': 'custlabel', 'lbltext': 'Lagerbereich ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'vonzlbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'vonzlbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'vonz', 'class': 'custlabel', 'lbltext': 'von Z', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'vonxlbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'vonxlbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'vonx', 'class': 'custlabel', 'lbltext': 'von X', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'vonylbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'vonylbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'vony', 'class': 'custlabel', 'lbltext': 'von Y', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'biszlbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'biszlbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'bisz', 'class': 'custlabel', 'lbltext': 'bis Z', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'bisxlbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'bisxlbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'bisx', 'class': 'custlabel', 'lbltext': 'bis X', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'bisylbl', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'bisylbl', 'visible': 'true', 'eingabe': '',
           'lblid': 'bisy', 'class': 'custlabel', 'lbltext': 'bis Y', 'type': 'text',
           'style': 'max-width: 20px; margin-left: 5px;'
         },
-        { 'name': 'transportlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'transportlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'transportlblbl', 'class': 'custlabel', 'lbltext': 'Transport ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'herstellerlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'herstellerlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'herstellerlblbl', 'class': 'custlabel', 'lbltext': 'Hersteller ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'lhmtyplb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'lhmtyplb', 'visible': 'true', 'eingabe': '',
           'lblid': 'lhmtyplblbl', 'class': 'custlabel', 'lbltext': 'LHM-Typ ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'inventurlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'inventurlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'inventurlblbl', 'class': 'custlabel', 'lbltext': 'Inventur ', 'type': 'text',
           'style': 'width: 100px;'
         },
-        { 'name': 'teilenummer', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'teilenummer', 'visible': 'true', 'eingabe': '',
           'lblid': 'teilenummerlbl', 'class': 'custlabel', 'lbltext': 'Teilenummer ', 'type': 'text',
           'style': 'max-width: 95 px;'
         },
-        { 'name': 'letzteinvvonlb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'letzteinvvonlb', 'visible': 'true', 'eingabe': '',
           'lblid': 'letzteinvvonlblbl', 'class': 'custlabel', 'lbltext': 'letzte Inv. von ', 'type': 'text',
           'style': 'width: 48px;'
         },
-        { 'name': 'letzteinvbislb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'letzteinvbislb', 'visible': 'true', 'eingabe': '',
           'lblid': 'letzteinvbislblbl', 'class': 'custlabel', 'lbltext': 'bis ', 'type': 'text',
           'style': 'width: 48px;'
         },
-        { 'name': 'intsperrelb', 'visible': 'true', 'eingabe': '',
+        {
+          'name': 'intsperrelb', 'visible': 'true', 'eingabe': '',
           'lblid': 'intsperrelblbl', 'class': 'custlabel', 'lbltext': 'int.-Sperre ', 'type': 'text',
           'style': 'width: 100px;'
         }
@@ -126,10 +150,10 @@ var config = {
           'lblid': 'reset', 'class': 'butn', 'value': 'Reset', 'type': 'submit',
           'style': 'max-width: 90px; float: left;'
         }
-      /*
-      <input id="anzeigen1" value="Anzeigen" type="submit" class="butn" style="max-width: 90px; float: left;" onclick="showtable( 'table1')">
-      <input id="reset1" value="Reset" type="submit" class="butn" style="width: 90px;">
-      */
+        /*
+        <input id="anzeigen1" value="Anzeigen" type="submit" class="butn" style="max-width: 90px; float: left;" onclick="showtable( 'table1')">
+        <input id="reset1" value="Reset" type="submit" class="butn" style="width: 90px;">
+        */
       ],
       'listboxen': [
         {
@@ -303,266 +327,266 @@ var config = {
         { 'title': 'Bezeichnung', minWidth: 90 }
       ]
     },
-      {
-        'title': 'LE',
-        'width': 100,
-        dataType: 'string', // # 1
-        'colModel': [
-          { 'title': 'Nr.', minWidth: 60, editable: true },
-          { 'title': 'Lagerort', minWidth: 60 },
-          { 'title': 'EZO', minWidth: 60 }
-        ]
-      },
-      {
-        'title': 'Inventur',
-        dataIndx: 'inv', // # 2
-        'colModel': [{
-          'title': 'INV',
-          dataIndx: 'inv',
-          maxWidth: 30,
-          minWidth: 30,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('INV:sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[8] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled/>"
-            }
+    {
+      'title': 'LE',
+      'width': 100,
+      dataType: 'string', // # 1
+      'colModel': [
+        { 'title': 'Nr.', minWidth: 60, editable: true },
+        { 'title': 'Lagerort', minWidth: 60 },
+        { 'title': 'EZO', minWidth: 60 }
+      ]
+    },
+    {
+      'title': 'Inventur',
+      dataIndx: 'inv', // # 2
+      'colModel': [{
+        'title': 'INV',
+        dataIndx: 'inv',
+        maxWidth: 60,
+        minWidth: 30,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('INV:sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
         },
-          { 'title': 'Grund', minWidth: 66 }
-        ]
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[8] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled/>"
+          }
+        }
       },
-      {
-        'title': 'Bestände',
-        'width': 50,
-        dataType: 'string', // # 3
-        'colModel': [
-          { 'title': 'total', minWidth: 30 },
-          { 'title': 'verfüg.', minWidth: 30 },
-          { 'title': 'reser.', minWidth: 30 },
-          { 'title': 'gesperrt', minWidth: 30 }
-        ]
-      },
+      { 'title': 'Grund', minWidth: 66 }
+      ]
+    },
+    {
+      'title': 'Bestände',
+      'width': 50,
+      dataType: 'string', // # 3
+      'colModel': [
+        { 'title': 'total', minWidth: 30 },
+        { 'title': 'verfüg.', minWidth: 30 },
+        { 'title': 'reser.', minWidth: 30 },
+        { 'title': 'gesperrt', minWidth: 30 }
+      ]
+    },
 
-      // TRANSPORT,INTERNESPERRE,CK_DISPOSTATUS,CK_QSSTATUS,
-      // OK;  { "name": "TRANSPORT", "typdata": "Boolean", "visible": "true", summe: "", minWidth: 79 },
-      {
-        'title': 'TR',
+    // TRANSPORT,INTERNESPERRE,CK_DISPOSTATUS,CK_QSSTATUS,
+    // OK;  { "name": "TRANSPORT", "typdata": "Boolean", "visible": "true", summe: "", minWidth: 79 },
+    {
+      'title': 'TR',
+      dataIndx: 'tr',
+      cls: 'red-col',
+      'colModel': [{
+        'title': '',
         dataIndx: 'tr',
-        cls: 'red-col',
-        'colModel': [{
-          'title': '',
-          dataIndx: 'tr',
-          minWidth: 10,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('TR: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[14] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        minWidth: 10,
+        align: 'center',
+        resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('TR: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
-        }]
-      },
-
-      // { "name": "INTERNESPERRE", "typdata": "Numeric", "visible": "true", summe: "", minWidth: 80 },
-      {
-        'title': 'SP',
-        dataType: 'string',
-        'cls': 'red', // # 5
-        'colModel': [
-          { 'title': '', 'minWidth': 30, 'cls': 'beige' }
-        ]
-      },
-
-      // OK;  { "name": "CK_DISPOSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 81 },
-      {
-        'title': 'DS',
-        dataType: 'string', // # 6
-        'colModel': [
-          { 'title': '', 'minWidth': 60 }
-        ]
-      },
-
-      // { "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
-      {
-        'title': 'QS-Status',
-        dataType: 'string', // # 7
-        'colModel': [
-          { 'title': '', 'minWidth': 75 }
-        ]
-      },
-      {
-        'title': 'Hostlager',
-        dataType: 'string', // # 8
-        'colModel': [
-          { 'title': '', 'minWidth': 100 }
-        ]
-      },
-      {
-        'title': 'Avis',
-        'width': 150,
-        dataType: 'string', // # 9
-        'colModel': [
-          { 'title': 'Nr.', minWidth: 66 },
-          { 'title': 'Kiste', minWidth: 66 },
-          { 'title': 'Container', 'minWidth': 65 }
-        ]
-      },
-      {
-        'title': 'Kistendispo',
-        dataIndx: 'kd', // # 10
-        'colModel': [{
-          'title': '',
-          dataIndx: 'kd',
-          minWidth: 80,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('Kistendispo: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[22] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[14] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
           }
-        }]
-      },
-      {
-        'title': 'Inventur',
-        dataIndx: 'ina', // # 11
-        'colModel': [{
-          'title': 'INA',
-          dataIndx: 'ina',
-          minWidth: 60,
-          align: 'center',
-          resizable: false,
-          menuIcon: false,
-          type: 'checkBoxSelection',
-          editor: false,
-          dataType: 'bool',
-          editable: false,
-          cb: {
-            all: false, // checkbox selection in the header affect current page only.
-            header: false // show checkbox in header. 
-          },
-          sortType: function (rowData1, rowData2, dataIndx) {
-            var val1 = rowData1[dataIndx],
-              val2 = rowData2[dataIndx],
-              c1 = $.trim(val1).length,
-              c2 = $.trim(val2).length
-            console.log('INA: sortType(): c1: ' + c1 + '; c2: ' + c2)
-            if (c1 > c2) {
-              return 1
-            } else if (c1 < c2) {
-              return -1
-            } else {
-              return 0
-            }
-          },
-          render: function (ui) {
-            var rowData = ui.rowData
-            if (rowData[23] !== '0') {
-              return "<input type='checkbox' checked disabled/>"
-            } else {
-              return "<input type='checkbox' disabled>"
-            }
+        }
+      }]
+    },
+
+    // { "name": "INTERNESPERRE", "typdata": "Numeric", "visible": "true", summe: "", minWidth: 80 },
+    {
+      'title': 'SP',
+      dataType: 'string',
+      'cls': 'red', // # 5
+      'colModel': [
+        { 'title': '', 'minWidth': 30, 'cls': 'beige' }
+      ]
+    },
+
+    // OK;  { "name": "CK_DISPOSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 81 },
+    {
+      'title': 'DS',
+      dataType: 'string', // # 6
+      'colModel': [
+        { 'title': '', 'minWidth': 60 }
+      ]
+    },
+
+    // { "name": "CK_QSSTATUS", "typdata": "ConstKey", "visible": "true", summe: "", minWidth: 82 },            
+    {
+      'title': 'QS-Status',
+      dataType: 'string', // # 7
+      'colModel': [
+        { 'title': '', 'minWidth': 75 }
+      ]
+    },
+    {
+      'title': 'Hostlager',
+      dataType: 'string', // # 8
+      'colModel': [
+        { 'title': '', 'minWidth': 100 }
+      ]
+    },
+    {
+      'title': 'Avis',
+      'width': 150,
+      dataType: 'string', // # 9
+      'colModel': [
+        { 'title': 'Nr.', minWidth: 66 },
+        { 'title': 'Kiste', minWidth: 66 },
+        { 'title': 'Container', 'minWidth': 65 }
+      ]
+    },
+    {
+      'title': 'Kistendispo',
+      dataIndx: 'kd', // # 10
+      'colModel': [{
+        'title': '',
+        dataIndx: 'kd',
+        minWidth: 80,
+        align: 'center',
+        //resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('Kistendispo: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
           }
-        }]
-      },
-      {
-        'title': 'Verp.menge',
-        dataType: 'string',
-        'colModel': [
-          { 'title': '', 'minWidth': 80 }
-        ] // # 12
-      }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[22] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
+          }
+        }
+      }]
+    },
+    {
+      'title': 'Inventur',
+      dataIndx: 'ina', // # 11
+      'colModel': [{
+        'title': 'INA',
+        dataIndx: 'ina',
+        minWidth: 60,
+        align: 'center',
+        //resizable: false,
+        menuIcon: false,
+        type: 'checkBoxSelection',
+        editor: false,
+        dataType: 'bool',
+        editable: false,
+        cb: {
+          all: false, // checkbox selection in the header affect current page only.
+          header: false // show checkbox in header. 
+        },
+        sortType: function (rowData1, rowData2, dataIndx) {
+          var val1 = rowData1[dataIndx],
+            val2 = rowData2[dataIndx],
+            c1 = $.trim(val1).length,
+            c2 = $.trim(val2).length
+          console.log('INA: sortType(): c1: ' + c1 + '; c2: ' + c2)
+          if (c1 > c2) {
+            return 1
+          } else if (c1 < c2) {
+            return -1
+          } else {
+            return 0
+          }
+        },
+        render: function (ui) {
+          var rowData = ui.rowData
+          if (rowData[23] !== '0') {
+            return "<input type='checkbox' checked disabled/>"
+          } else {
+            return "<input type='checkbox' disabled>"
+          }
+        }
+      }]
+    },
+    {
+      'title': 'Verp.menge',
+      dataType: 'string',
+      'colModel': [
+        { 'title': '', 'minWidth': 80 }
+      ] // # 12
+    }
     ],
     'scrollModel': { pace: 'fast', horizontal: true, autoFit: false, theme: false },
     'dataModel': { 'location': 'local', 'url': url, 'sorting': 'local' },
     'filterModel': { 'on': false, 'header': true },
     'selectionModel': { 'type': 'row', 'fireSelectChange': true }
-  /*,    
-  'cellDblClick': function (event, ui) {
-    var rowData = ui.rowData
-    console.log('cellDblClick:  event: ' + event 
-    + '; rowIndx: ' + ui.rowIndx  + '; rowData[5]: ' + rowData[5])
-  }
-  */
+    /*,    
+    'cellDblClick': function (event, ui) {
+      var rowData = ui.rowData
+      console.log('cellDblClick:  event: ' + event 
+      + '; rowIndx: ' + ui.rowIndx  + '; rowData[5]: ' + rowData[5])
+    }
+    */
   },
   'variante1': {
     'showonstart': true,
