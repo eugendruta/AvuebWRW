@@ -3,9 +3,9 @@ $(document).ready(function () {
 
   $(window).blur(function (e) {
     var modal = localStorage.getItem('modal')
-    console.log('Blur: modal: ' + modal)
     if (modal === 'true') {
       //Modalen PopUp schließen
+      UTIL.logger(dialogname + '; Blur: modal: ' + modal + "; PopUp schließen")
       $('#custom').dialog('close')
     }
   });
@@ -22,7 +22,7 @@ $(document).ready(function () {
     if (e.pageX <= 0 && (x != e.pageX)) {
       x = e.pageX
       // console.log('x:' + e.pageX + ', y: ' + (e.pageY - window.pageYOffset))
-      $('#navi').toggle() //.menuex
+      $('#navi').toggle()
 
       if (togledone) {
         togledone = false
