@@ -3,7 +3,7 @@ $(document).ready(function () {
   dialogname = 'avueb';
 
   //Test messages dialog
-  UTIL.showMessage(dialogname, "Test message", "info");
+  //UTIL.showMessage(dialogname, "Test message", "info");
 
   $(window).blur(function (e) {
     var modal = localStorage.getItem('modal')
